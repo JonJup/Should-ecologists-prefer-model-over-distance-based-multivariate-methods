@@ -1,12 +1,24 @@
-#################################
-### --- FPR and FNR plots --- ###
-#################################
+### -------------------- ###
+# --- FPR and FNR plot --- #
+### -------------------- ### 
 
+# Jonathan Jupke 
+# date unknown
+# Should ecologist prefer model- over algorithm-based methods?
 
+# This plots shows the creation of Figure 3 in the paper which shows the false
+# positive and negative rates of all four methods at different significance
+# levels.
 
-# Setup -------------------------------------------------------------------
+## -- OVERVIEW -- ## 
+# 01. Setup
+# 02. Calculate FPR and FNR
+# 03. Create Plot
+# ---------------- #
 
-pacman::p_load(here,
+# 01. Setup -------------------------------------------------------------------
+
+pacman::p_load(
                dplyr,
                ggplot2,
                ggthemes, # for base theme
@@ -15,9 +27,9 @@ pacman::p_load(here,
                wesanderson, # color palette,
                data.table
 )
+# also required: here
 
-
-result.wd = here::here("04_Analysis", "02_Summary Tables")
+result.wd = here::here("result_data/05_collected_results/")
 result.file = "all_results.csv"
 
 # load result table
@@ -28,7 +40,7 @@ dat <- fread(result.file)
 mycol = wes_palette("Zissou1")[c(1,4,5)]
 
 
-# Calculate FPR and FNR  --------------------------------------------------
+# 02. Calculate FPR and FNR  --------------------------------------------------
 
 FPR = data.table(FPR = rep(0, 20),
                  method = rep("empty", 20),
@@ -105,6 +117,11 @@ FNR[method == "mvglm", method := "MvGLM"]
 FPR[method == "dbrda", method := "dbRDA"]
 FNR[method == "dbrda", method := "dbRDA"]
 
+
+# 03. Create Plot  ------------------------------------------------------------
+
+
+
 fpr_plot = ggplot(data = FPR, aes(x = sig.lvl, y = FPR)) + 
       geom_line(aes(col = method), size = 1, alpha = 0.9) + 
       geom_point(aes(fill = method), shape = 21, size = 3) + 
@@ -134,15 +151,12 @@ fnr_plot = ggplot(data = FNR, aes(x = sig.lvl, y = FNR)) +
       )
 
 both = plot_grid(fpr_plot, fnr_plot, rel_widths = c(1,1.3), labels = c("False Positive Rate", "False Negative Rate"))
-# Save Plots --------------------------------------------------------------
+
+# 04. Save Plot --------------------------------------------------------------
 
 ggplot2::ggsave(plot = both,
-                filename = "../../05_Plots/FPNR.png",
+                filename = "../../plots/FPNR.png",
                 height = 10,
                 width = 20,
                 units = "cm")
-# ggplot2::ggsave(plot = fnr_plot,
-#                 filename = "../../06_Talk/Figures/FPR_FRN_plots/FNR.png",
-#                 height = 13,
-#                 width = 20,
-#                 units = "cm")
+

@@ -1,0 +1,153 @@
+\documentclass[a4paper,11pt]{article}
+
+%%% ---------------- %%%
+%%% --- Packages --- %%%
+%%% ---------------- %%%
+    \usepackage[utf8]{inputenc}
+    \usepackage{authblk}
+    \usepackage{graphicx}
+    \usepackage[space]{grffile}
+    \usepackage{latexsym}
+    \usepackage{textcomp}
+    \usepackage{longtable}
+    \usepackage{tabulary}
+    \usepackage{booktabs,array,multirow}
+    \usepackage{amsfonts,amsmath,amssymb}
+    \usepackage[table]{xcolor}
+    \definecolor{lightgray}{gray}{0.9}
+    \definecolor{lightergray}{gray}{0.7}
+    \usepackage{colortbl}
+    
+    % macro for arbitray vertical line in tables 
+    % see https://tex.stackexchange.com/questions/31441/vertical-line-only-in-one-part-of-a-table
+    \def\arrvline{\hfil\kern\arraycolsep\vline\kern-\arraycolsep\hfilneg}
+    % -- me 
+    \usepackage{lineno}         % for line numbers 
+    \usepackage{natbib}         % for citations
+    \usepackage[a4paper, left = 2.5cm, right = 2.5cm, top = 2.5cm, bottom = 2.5cm]{geometry}            % page layout
+    \usepackage{setspace}       % line spacing
+    \usepackage{mathptmx}       % Times new Roman 1
+    \usepackage[T1]{fontenc}    % Times new Roman 2
+    \usepackage{subcaption}     % subfigure environment
+    \usepackage{hyperref}
+    \usepackage[labelfont=bf]{caption} % Labels dick gedruckt
+    \usepackage[font=small]{caption}  % caption text body small
+    \usepackage{microtype}          % to avoid over- or underfull hboxes 
+    
+
+    
+%%% ---------------- %%%
+%%% --- Settings --- %%%
+%%% ---------------- %%%
+\linenumbers        % line numbers
+\doublespacing      % double spaced
+\setlength\parindent{0pt}
+
+ % --- Footnotes without marks --- % 
+ % see https://tex.stackexchange.com/questions/30720/footnote-without-a-marker
+ \newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+
+% colors 
+
+
+\title{Should ecologists prefer model- over algorithm-based multivariate methods?}
+
+\author[1]{Jonathan F. Jupke}
+\author[1]{Ralf B. Schäfer}
+\affil[1]{iES Landau, Institute for Environmental Sciences, University Koblenz-Landau, Fortstraße 7, 76829 Landau, Germany}%
+
+\date{}
+
+\begin{document}
+
+%%% ----------------- %%%
+%%% ---Title Page --- %%%
+%%% ----------------- %%%
+
+    \maketitle
+
+    %%% ---------------- %%%
+    %%% --- Abstract --- %%%
+    %%% ---------------- %%%
+
+        \begin{abstract}%  Less than 250 words 
+        %motivation 
+            Ecological data sets often record the abundance of several species, together with a set of explanatory variables. 
+            %
+            Multivariate statistical methods are optimal to analyze such data and are thus frequently used in ecology for exploration, visualization, and inference. 
+            %
+            Most of the common approaches are algorithmic, they follow mathematical routines like correspondence - or distance-based analyses, which stands in stark contrast to univariate statistics, where data models, assuming specific distributions, are the norm.
+            %
+            However, through advances in statistical theory and computational power, models for multivariate data have gained traction. 
+            %
+        %problem statement
+            Systematic and simulation-based performance evaluations of these methods are important as guides for practitioners but still lacking.
+        %approach
+            Here, we compare two model-based methods, multivariate Generalized Linear Models (MvGLM) and Constrained Quadratic Ordination (CQO), with two algorithm-based methods, distance-based redundancy analysis (dbRDA) and Canonical Correspondence Analysis (CCA).
+            % 		
+            We studied the performance of the methods to discriminate between causal variables and noise variables for 180 simulated data sets covering different sample sizes and data distributions.
+        %results
+            MvGLM and dbRDA differentiated accurately between causal and noise variables.
+            %
+            The former had the lowest false positive rate (0.008) while the latter had the lowest false negative rate (0.017).
+            %CCA
+            CQO and CCA had the highest false negative rate (0.291) and false positive rate (0.256), respectively. 
+        %conclusions
+           Our study shows that both model- and algorithm-based methods have their place in the ecologists statistical toolbox. 
+           % 
+        MvGLM and dbRDA are reliable for analysing species-environment relations, whereas both CQO and CCA exhibited considerable flaws especially with linear environmental gradients. 
+           %
+           
+        \end{abstract}
+
+    %%% ----------------- %%%
+    %%% --- Key-Words --- %%%
+    %%% ----------------- %%%
+
+        {\bf Keywords:} 
+        %1.
+        statistical models,
+        %2.
+        numerical simulations,
+        %3 
+        ordination, 
+        %4
+        multivariate analysis, 
+        %5
+        variable selection
+    \newpage
+    %% -- why this study and your paper deserves to be honored as a Highlighted Student Paper -- %% 
+        \textit{Commonly used multivariate methods in ecology might be too restrictive.} 
+        %
+        \textit{Alternatives exist but generalizable comparisons are lacking.}
+        %
+        \textit{We offer such testing and an actionable guide to multivarite.}
+        
+    %% -- Author Contributions -- %%    
+        \blfootnote{Author Contributions: JFJ and RBS conceived the experiment. JFJ conducted the simulation and the analyses. JFJ and RBS wrote the manuscript.}
+        \blfootnote{Corresponding Author: Jonathan F. Jupke; jonathanfrederik@aol.com}
+    
+    
+    \newpage
+    %%% ------------- %%%
+    %%% --- Parts --- %%%
+    %%% ------------- %%%
+\newpage
+\input{01_Introduction}
+\input{02_Methods}
+\input{03_Results}
+\input{04_Discussion}
+
+%%% -------------------- %%%
+%%% --- Bibliography --- %%%
+%%% --------------------- %%%
+\bibliographystyle{apalike}
+\bibliography{references}
+
+\end{document}

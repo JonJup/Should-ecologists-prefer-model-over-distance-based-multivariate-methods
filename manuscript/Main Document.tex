@@ -492,7 +492,9 @@
 		% General Info - absolute values 
         In its current implementation in the VGAM R-package \citep{VGAM19}, CQO does not provide \textit{p}-values \citep[but see][]{yee2010vglms}. 
         %
-        To compare its results with the other methods, we calculated pseudo-\textit{p}-values for the CQO (details of the procedures can be found in the section 2 of the Supplementary Materials).
+        To compare its results with the other methods, we calculated pseudo-\textit{p}-values for the CQO (details of the procedures can be found in the 
+        %section 2 of the Supplementary Materials).
+        Appendix).
         %
         Shortly, to determine the pseudo \textit{p}-value of environmental variable \textit{m}, we permuted the variable 100 times and fit a CQO to each permuted data set. 
         %
@@ -1010,7 +1012,9 @@ All data as well as scripts are available in the associated Github repository.
 \bibliographystyle{apalike}
 \bibliography{references}
 \newpage
-\renewcommand\thefigure{\thesection.\arabic{figure}} 
+\setcounter{figure}{0}
+\setcounter{table}{0}
+
 \subsection*{Appendix 1: Calculating pseudo \textit{p}-values for CQO}
  
     Currently, the VGAM R-package \citep[Version 1.1-1,][]{VGAM19} does not implement hypothesis tests regarding the predictors in a CQO. 
@@ -1048,7 +1052,7 @@ All data as well as scripts are available in the associated Github repository.
     % 
     Each predictor was tested separately so that in any one model only one predictor was permuted while the other remained in their original order. 
 
-\subsection*{Appendix 2:Supplementary figures and tables}   
+\subsection*{Appendix 2: Supplementary figures and tables}   
 % \section{Simulation parameters} 
 %     Table \ref{tab:SimDet} shows the model parameters used in the simulations. The optimum parameter \textit{u} is the only instance of a parameter that is relevant to both gradients and differs between them. 
 % 		%

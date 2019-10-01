@@ -18,7 +18,8 @@
     \definecolor{lightergray}{gray}{0.7}
     \usepackage{colortbl}
     
-    % macro for arbitray vertical line in tables 
+    %\usepackage{epstopdf}
+    % macro for arbitrary vertical line in tables 
     % see https://tex.stackexchange.com/questions/31441/vertical-line-only-in-one-part-of-a-table
     \def\arrvline{\hfil\kern\arraycolsep\vline\kern-\arraycolsep\hfilneg}
     % -- me 
@@ -382,9 +383,9 @@
 			         %
 			         All nine species of one community show the same response shape (with varying parameters) to one gradient, but response shapes can differ between gradients. 
 			         %
-			         All six possible combination of response shapes are sampled with six different sample sizes spanning from 25 to 900.
+			         All six possible combinations of response shapes are sampled with six different sample sizes spanning from 25 to 900.
 			        %
-                    Before these data are analyzed two noise variables are added two $\mathbf{X}$ .
+                    Before these data are analyzed two noise variables are added to $\mathbf{X}$ .
                     %
                     For each response shape - sample size combination, five different pairs of noise variables are appended to $\mathbf{X}$. 
 			        }
@@ -707,7 +708,7 @@
         
         \begin{figure}[h]
             \centering
-            \includegraphics[scale = 0.7]{manuscript/figures/FPNR}
+            \includegraphics[scale = 0.7]{manuscript/figures/FPNR.eps}
             \caption{False Positive Rate and False Negative Rate of the four statistical methods Canonical Correspondence Analysis (CCA), Constrained Quadratic Ordination (CQO), distance-based Redundancy Analysis (db-RDA), and multivariate Generalized Linear Model (MvGLM). }
             \label{fig:FPNR}
         \end{figure}{}
@@ -734,12 +735,18 @@
 	%
     This mixed performance leads to relatively high mean \textit{p}-values for the causal variables (Table \ref{table:results1::mean-p}) and accordingly high FNR and FPR (Figure \ref{fig:FPNR}).\\
     
+    % --------------------------------------------------------
+    %& False negative positive figure 
+    
     \begin{figure}
         \centering
         \includegraphics[scale = 0.7]{manuscript/figures/190912_error_bar.eps}
         \caption{Mean \textit{p}-values of response combinations (indicated by first letter of response types: unimodal (U), linear (L), bimodal (B)) for multivariate Generalized Linear Models (MvGLM), Constrained Quadratic Ordination (CQO), Canonical Correspondence Analysis (CCA), and distance-based Redundancy Analysis (dbRDA). Blue points are \textit{env1}, yellow points \textit{env2} and red points are noise variables. Bars show one standard deviation. The vertical, dashed line indicates a \textit{p}-value of 0.05.}
         \label{fig:result1::p-valueComparison}
     \end{figure}
+    % --------------------------------------------------------
+    
+    
     %------------------------------%
 	%& 			CCA					
 	%------------------------------% 
@@ -1112,7 +1119,9 @@ All data as well as R scripts are available in the associated Github repository 
     \begin{figure}[!htbp]
         \centering
         \includegraphics[scale =0.6]{manuscript/figures/runtimeplot.eps}
-        \caption{Run times of Multivariate Generalized Linear Models (MvGLM), distance-based Redundancy Analysis (dbRDA), Constrained Quadratic Ordination (CQO), and Canonical Correspondence Analysis (CCA). X-axis is scaled with a decimal logarithm. Colors indicate sample sizes.}
+        \caption{
+        Run times of Multivariate Generalized Linear Models (MvGLM), distance-based Redundancy Analysis (dbRDA), Constrained Quadratic Ordination (CQO), and Canonical Correspondence Analysis (CCA). X-axis is scaled with a decimal logarithm. Colors indicate sample sizes.
+        }
         \label{fig:runtime}
     \end{figure}{}
 

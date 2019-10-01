@@ -17,41 +17,39 @@
     \definecolor{lightgray}{gray}{0.9}
     \definecolor{lightergray}{gray}{0.7}
     \usepackage{colortbl}
+    \usepackage{caption} % for individual caption (S in Appendix) 
     
-    %\usepackage{epstopdf}
-    % macro for arbitrary vertical line in tables 
-    % see https://tex.stackexchange.com/questions/31441/vertical-line-only-in-one-part-of-a-table
-    \def\arrvline{\hfil\kern\arraycolsep\vline\kern-\arraycolsep\hfilneg}
-    % -- me 
-    \usepackage{lineno}         % for line numbers 
+   % \usepackage{lineno}         % for line numbers 
+   % \usepackage{mathptmx}       % Times new Roman 1
+   % \usepackage[T1]{fontenc}    % Times new Roman 2
+   % \usepackage{subcaption}     % subfigure environment
+   % \usepackage[labelfont=bf]{caption} % Labels dick gedruckt
+   % \usepackage[font=small]{caption}  % caption text body small   
     \usepackage{natbib}         % for citations
+    
     \usepackage[a4paper, left = 2.5cm, right = 2.5cm, top = 2.5cm, bottom = 2.5cm]{geometry}            % page layout
     \usepackage{setspace}       % line spacing
-    \usepackage{mathptmx}       % Times new Roman 1
-    \usepackage[T1]{fontenc}    % Times new Roman 2
-    \usepackage{subcaption}     % subfigure environment
-    \usepackage{hyperref}
-    \usepackage[labelfont=bf]{caption} % Labels dick gedruckt
-    \usepackage[font=small]{caption}  % caption text body small
-    \usepackage{microtype}          % to avoid over- or underfull hboxes 
+
+  %  \usepackage{hyperref}
+ %\usepackage{microtype}          % to avoid over- or underfull hboxes 
     
 
     
 %%% ---------------- %%%
 %%% --- Settings --- %%%
 %%% ---------------- %%%
-\linenumbers        % line numbers
+%\linenumbers        % line numbers
 \doublespacing      % double spaced
 \setlength\parindent{0pt}
 
  % --- Footnotes without marks --- % 
  % see https://tex.stackexchange.com/questions/30720/footnote-without-a-marker
- \newcommand\blfootnote[1]{%
-  \begingroup
-  \renewcommand\thefootnote{}\footnote{#1}%
-  \addtocounter{footnote}{-1}%
-  \endgroup
-}
+%  \newcommand\blfootnote[1]{%
+%   \begingroup
+%   \renewcommand\thefootnote{}\footnote{#1}%
+%   \addtocounter{footnote}{-1}%
+%   \endgroup
+% }
 
 
 % colors 
@@ -627,7 +625,6 @@
 		%
 		MvGLM were conducted with mvabund 3.13.1. \citep{Wang2019}, dbRDA and CCA with vegan 2.5-2 \citep{Oksanen2018} and CQO with VGAM 1.0-5 \citep{VGAM19}. 
 		%
-		R-scripts for the simulations as well as the analyses are available on \href{https://github.com/JonJup/GLMmv-Paper} {GitHub}(https://github.com/JonJup/GLMmv-Paper).
 		%
 		All calculations were conducted on an Ubuntu 18.04 machine with 64-bit, 8 GB RAM and 1.6 GHz.\\
 		%

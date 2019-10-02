@@ -10,15 +10,15 @@
  %   \usepackage[space]{grffile}
  %   \usepackage{latexsym}
 %    \usepackage{textcomp}
-%    \usepackage{longtable}
-%    \usepackage{tabulary}
-   % \usepackage{booktabs,array,multirow}
+    \usepackage{longtable}
+    \usepackage{tabulary}
+    \usepackage{booktabs,array,multirow}
    % \usepackage{amsfonts,amsmath,amssymb}
- %   \usepackage[table]{xcolor}
+    \usepackage[table]{xcolor}
 %    \definecolor{lightgray}{gray}{0.9}
  %   \definecolor{lightergray}{gray}{0.7}
   %  \usepackage{colortbl}
- %   \usepackage{caption} % for individual caption (S in Appendix) 
+    \usepackage{caption} % for individual caption (S in Appendix) 
     
    % \usepackage{lineno}         % for line numbers 
    % \usepackage{mathptmx}       % Times new Roman 1
@@ -516,10 +516,10 @@
         %
         To this end, we calculated false positive (FPR) and false negative rates (FNR) for each method.
         %
-        % \begin{align}
-        %   FPR &= FP /(TN + FP) \\        
-        %   FNR &=  FN / (TP + FN)
-        % \end{align}
+        \begin{align}
+          FPR &= FP /(TN + FP) \\        
+          FNR &=  FN / (TP + FN)
+        \end{align}
         where FP is a False Positive, TN a True Negative, FN a False Negative, and TP a True Positive. 
         %
         A false positive occurs when a noise variable is classified as causal, whereas a false negative when a causal variable is classified as non-causal. 
@@ -545,37 +545,37 @@
 		%
 		All datasets and R scripts generated during and/or analysed during the current study are available from the corresponding author on reasonable request.
 
-% \section{Results}
-% 		%------------------------------%
-% 		%& 		References 				
-% 		%------------------------------%  
+\section{Results}
+		%------------------------------%
+		%& 		References 				
+		%------------------------------%  
 	
-% 		We report the means and standard deviations of \textit{p}-values of MvGLM, CQO, CCA, and dbRDA for all explanatory variables (Table \ref{table:results1::mean-p}), p-values for different response shapes and sample sizes are given in the Tables S 2 - 5.
+		We report the means and standard deviations of \textit{p}-values of MvGLM, CQO, CCA, and dbRDA for all explanatory variables (Table \ref{table:results1::mean-p}), p-values for different response shapes and sample sizes are given in the Tables S 2 - 5.
 		
-% 		%------------------------------%
-% 		%& Table: p-values + standard deviations
-% 		%------------------------------% 
+		%------------------------------%
+		%& Table: p-values + standard deviations
+		%------------------------------% 
 
-%         \begin{table*}[ht]
-%             \centering
-%         	\caption{
-%         	    Mean \textit{p}-values $\pm$ standard deviations of the causal (env1 and env2) and noise variables from multivariate Generalized Linear Models (MvGLM), Constrained Quadratic Ordination (CQO), Canonical Correspondence Analysis (CCA), and distance-based Redundancy Analysis (dbRDA) for all models. 
-%         	    }
-%             \begin{tabular}{@{}
-%             >{\columncolor{white}[0pt][\tabcolsep]}
-%             cccc
-%             >{\columncolor{white}[\tabcolsep][0pt]} c
-%             @{}}
-%                 \rowcolor{lightgray}
-%                 & \textbf{MvGLM} & \textbf{CQO}      &  \textbf{CCA}     & \textbf{dbRDA} \\
-%                 \toprule
-%                 \textit{env1}  & $0.006 \pm 0.0275$   & $0.067 \pm 0.127$ & $0.264 \pm 0.433$ & $0.002 \pm 0.007$ \\
-%                 \textit{env2}  & $0.009 \pm 0.0311$   & $0.090 \pm 0.190$ & $0.264 \pm 0.433$ & $0.003 \pm 0.011$ \\
-%                 Noise          & $0.650 \pm 0.280$    & $0.680 \pm 0.268$ & $0.399 \pm 0.348$ & $0.523 \pm 0.256$ \\
-%                 \bottomrule  
-%             \end{tabular}
-%             \label{table:results1::mean-p}	
-%         \end{table*}
+        \begin{table*}[ht]
+            \centering
+        	\caption{
+        	    Mean \textit{p}-values $\pm$ standard deviations of the causal (env1 and env2) and noise variables from multivariate Generalized Linear Models (MvGLM), Constrained Quadratic Ordination (CQO), Canonical Correspondence Analysis (CCA), and distance-based Redundancy Analysis (dbRDA) for all models. 
+        	    }
+            \begin{tabular}{@{}
+            >{\columncolor{white}[0pt][\tabcolsep]}
+            cccc
+            >{\columncolor{white}[\tabcolsep][0pt]} c
+            @{}}
+                \rowcolor{lightgray}
+                & \textbf{MvGLM} & \textbf{CQO}      &  \textbf{CCA}     & \textbf{dbRDA} \\
+                \toprule
+                \textit{env1}  & $0.006 \pm 0.0275$   & $0.067 \pm 0.127$ & $0.264 \pm 0.433$ & $0.002 \pm 0.007$ \\
+                \textit{env2}  & $0.009 \pm 0.0311$   & $0.090 \pm 0.190$ & $0.264 \pm 0.433$ & $0.003 \pm 0.011$ \\
+                Noise          & $0.650 \pm 0.280$    & $0.680 \pm 0.268$ & $0.399 \pm 0.348$ & $0.523 \pm 0.256$ \\
+                \bottomrule  
+            \end{tabular}
+            \label{table:results1::mean-p}	
+        \end{table*}
 
 
 % 	%------------------------------%

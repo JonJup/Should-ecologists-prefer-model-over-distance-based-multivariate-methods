@@ -578,51 +578,51 @@
         \end{table*}
 
 
-% 	%------------------------------%
-% 	%& 		GLMmv 					
-% 	%------------------------------%
-% 		%------------------------------%
-% 		%& 			In General 			
-% 		%------------------------------%
-%         In most MvGLMs, negative binomial residual distribution achieved the lowest AIC and the best fit to model assumptions. 
-% 		%  
-% 		The plot of Dunn-Smyth residuals against the linear predictor of \textit{LL} (Figure S 1) showed arched patterns, which could indicate that the residuals were not independent of the explanatory variables. 
-%         %
-%         Nevertheless, We used a negative binomial residual distribution because visual inspection of the QQ-Plots suggested that it resulted in a better fit than Poisson or Gaussian distributions. 
+	%------------------------------%
+	%& 		GLMmv 					
+	%------------------------------%
+		%------------------------------%
+		%& 			In General 			
+		%------------------------------%
+        In most MvGLMs, negative binomial residual distribution achieved the lowest AIC and the best fit to model assumptions. 
+		%  
+		The plot of Dunn-Smyth residuals against the linear predictor of \textit{LL} (Figure S 1) showed arched patterns, which could indicate that the residuals were not independent of the explanatory variables. 
+        %
+        Nevertheless, We used a negative binomial residual distribution because visual inspection of the QQ-Plots suggested that it resulted in a better fit than Poisson or Gaussian distributions. 
 
-% 		%------------------------------%
-% 		%& 	 p-values 	
-% 		%------------------------------% 
-% 		MvGLMs' \textit{p}-values for both causal variables and all response type combinations were low (Table  \ref{table:results1::mean-p}).
-% 		%
-%         The \textit{p}-values of the linear variable in \textit{LB} and \textit{UL} and of the bimodal variable in \textit{UB} were higher at the smallest sample size than at higher ones (Table S 2).  
-% 		%
-% 		Otherwise, the samples size had no effect on the \textit{p}-values of the causal variables, which often were minimal (1 divided by the number of permutations + 1) at small sample sizes.
-% 		%
-% 		The \textit{p}-values for noise variables were higher and varied strongly (Figure \ref{fig:result1::p-valueComparison}).
-% 		%
-% 		They only fell below the nominal significance level of 0.05 in three models. 
-% 		%
-% 		All three models had the response combination \textit{LL} and the low \textit{p}-values occurred at the sample sizes 225, 625, and 900 (Table S 2).
-% 		%
-% 		%------------------------------%
-% 		%& 	 FPR/ FNR  	
-% 		%------------------------------%
-% 		%
-% 		The FPR was the lowest of all methods (0.008 at $\alpha = 0.05$) and always well below the respective significance level (Figure 3). 
-% 		%
-% 		Overall, FPRs and FNRs of MvGLMs were very low (Figure \ref{fig:FPNR}).
-% 		%
-%         Interestingly the \textit{p}-values of noise variables did not show a monotonic positive relationship with samples size, as we expected. 
-%         %
-%         Rather the response seemed unimodal in \textit{UU}, \textit{LL}, and \textit{BB}, slightly negative in \textit{LB} and \textit{UL} and positive for \textit{UB} (Table S 2). \\ 
+		%------------------------------%
+		%& 	 p-values 	
+		%------------------------------% 
+		MvGLMs' \textit{p}-values for both causal variables and all response type combinations were low (Table  \ref{table:results1::mean-p}).
+		%
+        The \textit{p}-values of the linear variable in \textit{LB} and \textit{UL} and of the bimodal variable in \textit{UB} were higher at the smallest sample size than at higher ones (Table S 2).  
+		%
+		Otherwise, the samples size had no effect on the \textit{p}-values of the causal variables, which often were minimal (1 divided by the number of permutations + 1) at small sample sizes.
+		%
+		The \textit{p}-values for noise variables were higher and varied strongly (Figure \ref{fig:result1::p-valueComparison}).
+		%
+		They only fell below the nominal significance level of 0.05 in three models. 
+		%
+		All three models had the response combination \textit{LL} and the low \textit{p}-values occurred at the sample sizes 225, 625, and 900 (Table S 2).
+		%
+		%------------------------------%
+		%& 	 FPR/ FNR  	
+		%------------------------------%
+		%
+		The FPR was the lowest of all methods (0.008 at $\alpha = 0.05$) and always well below the respective significance level (Figure 3). 
+		%
+		Overall, FPRs and FNRs of MvGLMs were very low (Figure \ref{fig:FPNR}).
+		%
+        Interestingly the \textit{p}-values of noise variables did not show a monotonic positive relationship with samples size, as we expected. 
+        %
+        Rather the response seemed unimodal in \textit{UU}, \textit{LL}, and \textit{BB}, slightly negative in \textit{LB} and \textit{UL} and positive for \textit{UB} (Table S 2). \\ 
         
-%         \begin{figure}[h]
-%             \centering
-%             \includegraphics[scale = 0.7]{FPNR}
-%             \caption{False Positive Rate and False Negative Rate of the four statistical methods Canonical Correspondence Analysis (CCA), Constrained Quadratic Ordination (CQO), distance-based Redundancy Analysis (db-RDA), and multivariate Generalized Linear Model (MvGLM). }
-%             \label{fig:FPNR}
-%         \end{figure}{}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[scale = 0.7]{figure3_falsenegativeandpositives}
+            \caption{False Positive Rate and False Negative Rate of the four statistical methods Canonical Correspondence Analysis (CCA), Constrained Quadratic Ordination (CQO), distance-based Redundancy Analysis (db-RDA), and multivariate Generalized Linear Model (MvGLM). }
+            \label{fig:FPNR}
+        \end{figure}{}
                     
 %     %------------------------------%
 % 	%& 	CQO			

@@ -123,12 +123,12 @@ FNR[method == "dbrda", method := "dbRDA"]
 
 
 fpr_plot = ggplot(data = FPR, aes(x = sig.lvl, y = FPR)) + 
-      geom_line(aes(col = method), size = 1, alpha = 0.9) + 
+      geom_line(aes(col = method), size = 1, alpha = 1) + 
       geom_point(aes(fill = method), shape = 21, size = 3) + 
       ylab(label = "False Positive Rate") +
       xlab(label = "Significance level") + 
-      ylim(0, 0.6) +
-      #theme_economist() + 
+      ylim(0, 0.58) +
+      theme_minimal_hgrid() + 
       theme(
             axis.title.x = element_text(size = 15),
             legend.title = element_blank(),
@@ -137,12 +137,12 @@ fpr_plot = ggplot(data = FPR, aes(x = sig.lvl, y = FPR)) +
       )
 
 fnr_plot = ggplot(data = FNR, aes(x = sig.lvl, y = FNR)) + 
-      geom_line(aes(col = method), size = 1, alpha = 0.9, show.legend = F) + 
+      geom_line(aes(col = method), size = 1, alpha = 1, show.legend = F) + 
       geom_point(aes(fill = method), shape = 21, size = 3) + 
       ylab(label = "False Negative Rate") +
       xlab(label = "Significance level") + 
-      ylim(0, 0.6) + 
-      #theme_minimal() + 
+      ylim(0, 0.58) + 
+      theme_minimal_hgrid() + 
       theme(
             axis.title.x = element_text(size = 15),
             legend.title = element_blank(),
@@ -150,12 +150,18 @@ fnr_plot = ggplot(data = FNR, aes(x = sig.lvl, y = FNR)) +
             
       )
 
-both = plot_grid(fpr_plot, fnr_plot, rel_widths = c(1,1.3), labels = c("False Positive Rate", "False Negative Rate"))
+(both = plot_grid(fpr_plot, 
+                  fnr_plot, 
+                  rel_widths = c(1,1.4),
+                  scale = c(.9, .9),
+                  labels = c("False Positive Rate", "False Negative Rate"))
+)
+
 
 # 04. Save Plot --------------------------------------------------------------
 
 ggplot2::ggsave(plot = both,
-                filename = "../../plots/FPNR.png",
+                filename = "../../plots/FPNR.pdf",
                 height = 10,
                 width = 20,
                 units = "cm")

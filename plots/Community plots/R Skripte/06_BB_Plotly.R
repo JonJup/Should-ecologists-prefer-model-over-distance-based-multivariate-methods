@@ -7,9 +7,9 @@ pacman::p_load(plotly, magrittr)
 
 
 ## set wd and load community data 
-setwd("~/01_Uni/05_MTPnew/05_Plots/")
-model_list <- fs::dir_ls()
-model_list["03_PLOT_UB_100.R"] %>% source()
+
+model_list <- fs::dir_ls("plots/Community plots/R Skripte/")
+model_list["plots/Community plots/R Skripte/03_PLOT_UB_100.R"] %>% source()
 out <- Simulation.output$data
 out.samp <- out[,1:9]
 out.grid <- out[,10:13]

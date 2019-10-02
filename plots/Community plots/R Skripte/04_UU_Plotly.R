@@ -11,11 +11,8 @@ pacman::p_load(plotly, magrittr, tidyverse)
 
 # Simulate Community ------------------------------------------------------
 
-setwd(here::here("05_Plots"))
-
 # The file collected_functions.R contains all the functions necessary to run this script.
-source("Collected_Functions.R")
-
+source("plots/Collected_Functions.R")
 
 
 n <- 9

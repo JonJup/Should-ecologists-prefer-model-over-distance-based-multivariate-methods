@@ -356,194 +356,194 @@
 		%
 	    To estimate \textit{p}-values, we used a residual permutation bootstrap with 1000 repetitions \citep{davidsonbootstrap}.
 	
-	%------------------------------%
-	%&  CQO
-	%------------------------------%
-        \subsubsection*{Constrained Quardratic Ordination}
-	    Like the MvGLM, the CQO is related to the GLM. 
-		%
-		It is based on Vector Generalized Linear Models (VGLMs), which are a further generalization of GLMs.
-		%
-		All GLMs are special instances of VGLMs, just like linear regression is a special instance of a GLM.
-		%
-		They are not restricted to the exponential family, include multivariate response models, and can explicitly model other response parameters than the mean (e.g. the variance or higher order moments).
-        %
-        CQO builds on Reduced Rank-VGLMs, in which the $M$ original predictors are reduced to $R$ latent variables $\nu$. 
-		%
-		This entails the reduction of the hat matrix $\mathbf{H}$, which holds the regression coefficients $\beta$, to a rank $R$ matrix $\mathbf{H_R}$.
-		%
-		So unlike a MvGLM, CQO reduces the data's dimensionality and in contrast to most ordination techniques (including dbRDA and CCA), the researcher specifies the number of latent variables (i.e. dimensions)  \textit{a priori}.
-		%
-		$\mathbf{H_R}$ is decomposed into two matrices $\mathbf{H_R}^T = \mathbf{A}\ \mathbf{C}^T$, where $\mathbf{H_R}^T$ denotes the transpose of $\mathbf{H_R}$.  
-		%
-		The latent variables $\mathbf{\nu}$ are the linear combinations of the constrained coefficients $\mathbf{C}^T$ and the sites-by-predictor matrix $\mathbf{X}$.
-		%
-		This means that the higher the constrained coefficient of a given predictor is, the more influence it has on the corresponding latent variable.   
-		%
-		$\mathbf{A}$ holds the regression coefficient of the latent variables.
-        %
-		CQO extends this model by adding a quadratic term (cf. Eqn. \ref{eq:CQO1}). 
+% 	%------------------------------%
+% 	%&  CQO
+% 	%------------------------------%
+%         \subsubsection*{Constrained Quadratic Ordination}
+% 	    Like the MvGLM, the CQO is related to the GLM. 
+% 		%
+% 		It is based on Vector Generalized Linear Models (VGLMs), which are a further generalization of GLMs.
+% 		%
+% 		All GLMs are special instances of VGLMs, just like linear regression is a special instance of a GLM.
+% 		%
+% 		They are not restricted to the exponential family, include multivariate response models, and can explicitly model other response parameters than the mean (e.g. the variance or higher order moments).
+%         %
+%         CQO builds on Reduced Rank-VGLMs, in which the $M$ original predictors are reduced to $R$ latent variables $\nu$. 
+% 		%
+% 		This entails the reduction of the hat matrix $\mathbf{H}$, which holds the regression coefficients $\beta$, to a rank $R$ matrix $\mathbf{H_R}$.
+% 		%
+% 		So unlike a MvGLM, CQO reduces the data's dimensionality and in contrast to most ordination techniques (including dbRDA and CCA), the researcher specifies the number of latent variables (i.e. dimensions)  \textit{a priori}.
+% 		%
+% 		$\mathbf{H_R}$ is decomposed into two matrices $\mathbf{H_R}^T = \mathbf{A}\ \mathbf{C}^T$, where $\mathbf{H_R}^T$ denotes the transpose of $\mathbf{H_R}$.  
+% 		%
+% 		The latent variables $\mathbf{\nu}$ are the linear combinations of the constrained coefficients $\mathbf{C}^T$ and the sites-by-predictor matrix $\mathbf{X}$.
+% 		%
+% 		This means that the higher the constrained coefficient of a given predictor is, the more influence it has on the corresponding latent variable.   
+% 		%
+% 		$\mathbf{A}$ holds the regression coefficient of the latent variables.
+%         %
+% 		CQO extends this model by adding a quadratic term (cf. Eqn. \ref{eq:CQO1}). 
 	
-		\begin{equation}\label{eq:CQO1} 
-		\eta_s = \beta_{(s)1} + \beta_{(s)2} \nu + \beta_{(s)3} \nu^2	
-		\end{equation} 
+% 		\begin{equation}\label{eq:CQO1} 
+% 		\eta_s = \beta_{(s)1} + \beta_{(s)2} \nu + \beta_{(s)3} \nu^2	
+% 		\end{equation} 
 		
-		$\beta_1$ is the intercept term and $\eta$ is the linear predictor. 
-        It assumes symmetric and unimodal responses to the latent variables.
-		 % 
-		CQOs were run with Poisson residual distribution and the canonical log-link function.
-		%
-		The four explanatory variables were scaled and centered before fitting the models.
-		%
-		The effective nonlinear degrees of freedom were set to 1.5 as suggested by \citet{yee2015vector}.
-		%
-		Each model was run fifty times and the deviances of each run were compared. 
-		%
-		If the lowest deviances are too far apart, the solution might be local and the model should be refitted.  
-		%
-		Here, we fit the model again, until the difference between the lowest and the fifth lowest deviance no longer exceeds 3. 
-		% 
-		% General Info - absolute values 
-        In its current implementation in the VGAM R-package \citep{VGAM19}, CQO does not provide \textit{p}-values \cite[but see][]{yee2010vglms}. 
-        %
-        To compare its results with the other methods, we calculated pseudo-\textit{p}-values for the CQO (details of the procedures can be found in the 
-        %section 2 of the Supplementary Materials).
-        Appendix).
-        %
-        Shortly, to determine the pseudo \textit{p}-value of environmental variable \textit{m}, we permuted the variable 100 times and fit a CQO to each permuted data set. 
-        %
-        For every model, the absolute values of the constraint coefficient across both latent variables were added for environmental variable \textit{m}, to obtain the test statistic $\sum C_{\nu_{X_{m}}}$. 
-        %
-        The proportion of test statistics of permuted data sets, that were larger than that of the unpermuted data set, is the pseudo-\textit{p}-value. 
-        %
-	    All models were fit with rank 1 and 2.
-		%
-		The optimal number of ranks was found to be 2 for all models, determined by the AIC as proposed by \citet{yee2003reduced}.\\
+% 		$\beta_1$ is the intercept term and $\eta$ is the linear predictor. 
+%         It assumes symmetric and unimodal responses to the latent variables.
+% 		 % 
+% 		CQOs were run with Poisson residual distribution and the canonical log-link function.
+% 		%
+% 		The four explanatory variables were scaled and centered before fitting the models.
+% 		%
+% 		The effective nonlinear degrees of freedom were set to 1.5 as suggested by \citet{yee2015vector}.
+% 		%
+% 		Each model was run fifty times and the deviances of each run were compared. 
+% 		%
+% 		If the lowest deviances are too far apart, the solution might be local and the model should be refitted.  
+% 		%
+% 		Here, we fit the model again, until the difference between the lowest and the fifth lowest deviance no longer exceeds 3. 
+% 		% 
+% 		% General Info - absolute values 
+%         In its current implementation in the VGAM R-package \citep{VGAM19}, CQO does not provide \textit{p}-values \cite[but see][]{yee2010vglms}. 
+%         %
+%         To compare its results with the other methods, we calculated pseudo-\textit{p}-values for the CQO (details of the procedures can be found in the 
+%         %section 2 of the Supplementary Materials).
+%         Appendix).
+%         %
+%         Shortly, to determine the pseudo \textit{p}-value of environmental variable \textit{m}, we permuted the variable 100 times and fit a CQO to each permuted data set. 
+%         %
+%         For every model, the absolute values of the constraint coefficient across both latent variables were added for environmental variable \textit{m}, to obtain the test statistic $\sum C_{\nu_{X_{m}}}$. 
+%         %
+%         The proportion of test statistics of permuted data sets, that were larger than that of the unpermuted data set, is the pseudo-\textit{p}-value. 
+%         %
+% 	    All models were fit with rank 1 and 2.
+% 		%
+% 		The optimal number of ranks was found to be 2 for all models, determined by the AIC as proposed by \citet{yee2003reduced}.\\
 
-	%------------------------------%
-	%&  CCA
-	%------------------------------%
-	\subsubsection*{Canonical Correspondence Analysis}
-	 CCA is the heuristic solution to Restricted Gaussian Regression \citep{Zuur2007}. 
-	 %
-	 In the latter, one tries to estimate the parameters \textit{u}, \textit{t}, and \textit{c} of a Gaussian response model (see Eqn. \ref{eq:GaussianResponseModel}), but instead of the measured environmental variables, their linear combinations are used as $x$. 
-	 %
-	 Though it is possible to estimate the parameters with iteratively reweighted least squares in a GLM, this was to computationally intensive at the time the method was proposed by  \citet{GauchJr1972}.
-	 %
-	 Instead, \citep{TerBraak1986} proposed to approximate the results by CCA, which is valid as long as: all species have equal tolerances $t$ and maximal abundances $c$, their responses are unimodal and symmetrically bell-shaped and their optima $c$ are spread uniformly in the ordination space. 
-	 These assumptions are collectively known as the \textit{species packing model}.
-	 %
-	 \citet{Palmer1993}, \citet{Johnson1999} and \citet{Zuur1999} confirmed the validity of the approximation and its robustness towards violations against the species packing model in simulation studies.
-	 %
-	 Today, CCA is one of the most widely used and cited multivariate statistical methods in ecology \citep{Braak2014}.\\
-		%
-		An iterative algorithm is used to obtain estimates. 
-		%
-		First, arbitrary values are assigned to the site scores (positions of sites in latent variable space, $\mathbf{Z}$). 
-		%
-		These are used to calculate the species optima $u$ (henceforth species scores) as in Eqn. \ref{eq:CCA_species_scores}.
-		%
-		\begin{equation}\label{eq:CCA_species_scores}
-		\mathbf{u} = \mathbf{D}_c \mathbf{Y}^t \mathbf {Z}
-		\end{equation}
-		%
-		Where $\mathbf{u} = (u_1\ ...\ u_S)^t$, $\mathbf{D}_c$ is a diagonal matrix with the abundance of species $s$ across all sites as its $s,s$-th element and $\mathbf{Y}^t$ denotes the transpose of $\mathbf{Y}$.
-		%
-		The species scores are in turn used to calculate the site scores as their weighted average $\mathbf{Z}_{wa}$ (Eqn. \ref{eq:CCA_site_scores}) 
-		%
-		\begin{equation} \label{eq:CCA_site_scores}
-			\mathbf{Z}_{wa} = \mathbf{D}_r^{-1} \mathbf{Y} \mathbf {u}
-		\end{equation}
-		%
-		where $\mathbf{D}_r$ is a diagonal matrix with the abundance of all species at site $n$ as its $n,n$-th element and $\mathbf{D}_r^{-1}$ denotes the inverse of $\mathbf{D}_r$. 
-		%
-		$\mathbf{Z}_{wa}$ is regressed against $\mathbf{X}$ to obtain the weighted regression coefficient $\alpha$. 
-		%
-		\begin{equation}\label{CCA_canocical_weights}
-		\alpha = (\mathbf{X}^t \mathbf{D}_r \mathbf{X})^{-1} \mathbf{X}^t \mathbf{D}_r \mathbf{Z}_{wa}
-		\end{equation}
-		%
-		Lastly, $\mathbf{Z}$ is calculated as the product of $\mathbf{X}$ and $\mathbf{\alpha}$. 
-		%
-		This procedure is repeated until convergence. \\
-	    %
-		The distance between sites (scaling 1) or species (scaling 2) in a CCA approximates their two-dimensional $\chi^{2}$-distance, i.e. the Euclidean distance between the expected abundances under the null hypothesis, that abundances do not change along environmental variables, and the actual data.
-		%
-		Explanatory variables were scaled and centered. 
-		%
-		Hypothesis tests for environmental variables can be conducted using a pseudo-$F$ statistic with permuted residuals  \citep{Legendre2011} and the null hypotheses that the effect of the variable on the response is equal to zero after accounting for the effect of all other variables. 
-	    %
-	    Hypothesis tests were conducted with 999 permutations.\\
+% 	%------------------------------%
+% 	%&  CCA
+% 	%------------------------------%
+% 	\subsubsection*{Canonical Correspondence Analysis}
+% 	 CCA is the heuristic solution to Restricted Gaussian Regression \citep{Zuur2007}. 
+% 	 %
+% 	 In the latter, one tries to estimate the parameters \textit{u}, \textit{t}, and \textit{c} of a Gaussian response model (see Eqn. \ref{eq:GaussianResponseModel}), but instead of the measured environmental variables, their linear combinations are used as $x$. 
+% 	 %
+% 	 Though it is possible to estimate the parameters with iteratively reweighted least squares in a GLM, this was to computationally intensive at the time the method was proposed by  \citet{GauchJr1972}.
+% 	 %
+% 	 Instead, \citep{TerBraak1986} proposed to approximate the results by CCA, which is valid as long as: all species have equal tolerances $t$ and maximal abundances $c$, their responses are unimodal and symmetrically bell-shaped and their optima $c$ are spread uniformly in the ordination space. 
+% 	 These assumptions are collectively known as the \textit{species packing model}.
+% 	 %
+% 	 \citet{Palmer1993}, \citet{Johnson1999} and \citet{Zuur1999} confirmed the validity of the approximation and its robustness towards violations against the species packing model in simulation studies.
+% 	 %
+% 	 Today, CCA is one of the most widely used and cited multivariate statistical methods in ecology \citep{Braak2014}.\\
+% 		%
+% 		An iterative algorithm is used to obtain estimates. 
+% 		%
+% 		First, arbitrary values are assigned to the site scores (positions of sites in latent variable space, $\mathbf{Z}$). 
+% 		%
+% 		These are used to calculate the species optima $u$ (henceforth species scores) as in Eqn. \ref{eq:CCA_species_scores}.
+% 		%
+% 		\begin{equation}\label{eq:CCA_species_scores}
+% 		\mathbf{u} = \mathbf{D}_c \mathbf{Y}^t \mathbf {Z}
+% 		\end{equation}
+% 		%
+% 		Where $\mathbf{u} = (u_1\ ...\ u_S)^t$, $\mathbf{D}_c$ is a diagonal matrix with the abundance of species $s$ across all sites as its $s,s$-th element and $\mathbf{Y}^t$ denotes the transpose of $\mathbf{Y}$.
+% 		%
+% 		The species scores are in turn used to calculate the site scores as their weighted average $\mathbf{Z}_{wa}$ (Eqn. \ref{eq:CCA_site_scores}) 
+% 		%
+% 		\begin{equation} \label{eq:CCA_site_scores}
+% 			\mathbf{Z}_{wa} = \mathbf{D}_r^{-1} \mathbf{Y} \mathbf {u}
+% 		\end{equation}
+% 		%
+% 		where $\mathbf{D}_r$ is a diagonal matrix with the abundance of all species at site $n$ as its $n,n$-th element and $\mathbf{D}_r^{-1}$ denotes the inverse of $\mathbf{D}_r$. 
+% 		%
+% 		$\mathbf{Z}_{wa}$ is regressed against $\mathbf{X}$ to obtain the weighted regression coefficient $\alpha$. 
+% 		%
+% 		\begin{equation}\label{CCA_canocical_weights}
+% 		\alpha = (\mathbf{X}^t \mathbf{D}_r \mathbf{X})^{-1} \mathbf{X}^t \mathbf{D}_r \mathbf{Z}_{wa}
+% 		\end{equation}
+% 		%
+% 		Lastly, $\mathbf{Z}$ is calculated as the product of $\mathbf{X}$ and $\mathbf{\alpha}$. 
+% 		%
+% 		This procedure is repeated until convergence. \\
+% 	    %
+% 		The distance between sites (scaling 1) or species (scaling 2) in a CCA approximates their two-dimensional $\chi^{2}$-distance, i.e. the Euclidean distance between the expected abundances under the null hypothesis, that abundances do not change along environmental variables, and the actual data.
+% 		%
+% 		Explanatory variables were scaled and centered. 
+% 		%
+% 		Hypothesis tests for environmental variables can be conducted using a pseudo-$F$ statistic with permuted residuals  \citep{Legendre2011} and the null hypotheses that the effect of the variable on the response is equal to zero after accounting for the effect of all other variables. 
+% 	    %
+% 	    Hypothesis tests were conducted with 999 permutations.\\
 	
-	%------------------------------%
-	%& dbRDA
-	%------------------------------%
-	\subsubsection*{distance-based Redundancy Analysis}
-	    dbRDA is a variation of the commonly used Redundancy Analysis, proposed by \citet{Legendre1999}.
-	    %
-        It is not based on one specific distance measure but instead can adopt any chosen measure.
-        %
-		It is the constrained form of Principal Coordinates Analysis (PCoA) \citep{Legendre1999}, which will be shortly addressed here.
-		%
-		In PCoA, $\mathbf{Y}$ is transformed into a centered distance matrix $\Delta$.
-		%
-		The columns of the matrix $\mathbf{PC}$ are the eigenvectors of $\Delta$ scaled to a length that is equal to the square root of their eigenvalues \citep{gower1966some}.
-		%
-		Each row of PC gives the eponymous \textit{Principal Coordinates} of one observation.
-		% 
-		In a dbRDA, this matrix $\mathbf{PC}$ is linearly related to the explanatory variables by an RDA.
-		%
-		The dbRDA preserves the distance metric of $\Delta$, which can be metric, semi- or non-metric.
-		%
-		dbRDA was highlighted by \citet{Szocs2015}, because the possibility to use asymmetrical distance metrics makes them appealing for sparse data sets. 
-		%  	
-	    We used the Bray-Curtis distance, which is the reciprocal of the Steinhaus coefficient  \citep{motyka1947zadaniach}, to calculate $\Delta$.
-	    %
-		Negative eigenvalues were corrected with Lingoes correction \citep{lingoes1971some}.
-		%
-		As in CQO and CCA, environmental variables were scaled and centered. 
-		%
-		The significance tests for explanatory variables are calculated using a pseudo-F-Statistic in the same manner as for the CCA.\\
+% 	%------------------------------%
+% 	%& dbRDA
+% 	%------------------------------%
+% 	\subsubsection*{distance-based Redundancy Analysis}
+% 	    dbRDA is a variation of the commonly used Redundancy Analysis, proposed by \citet{Legendre1999}.
+% 	    %
+%         It is not based on one specific distance measure but instead can adopt any chosen measure.
+%         %
+% 		It is the constrained form of Principal Coordinates Analysis (PCoA) \citep{Legendre1999}, which will be shortly addressed here.
+% 		%
+% 		In PCoA, $\mathbf{Y}$ is transformed into a centered distance matrix $\Delta$.
+% 		%
+% 		The columns of the matrix $\mathbf{PC}$ are the eigenvectors of $\Delta$ scaled to a length that is equal to the square root of their eigenvalues \citep{gower1966some}.
+% 		%
+% 		Each row of PC gives the eponymous \textit{Principal Coordinates} of one observation.
+% 		% 
+% 		In a dbRDA, this matrix $\mathbf{PC}$ is linearly related to the explanatory variables by an RDA.
+% 		%
+% 		The dbRDA preserves the distance metric of $\Delta$, which can be metric, semi- or non-metric.
+% 		%
+% 		dbRDA was highlighted by \citet{Szocs2015}, because the possibility to use asymmetrical distance metrics makes them appealing for sparse data sets. 
+% 		%  	
+% 	    We used the Bray-Curtis distance, which is the reciprocal of the Steinhaus coefficient  \citep{motyka1947zadaniach}, to calculate $\Delta$.
+% 	    %
+% 		Negative eigenvalues were corrected with Lingoes correction \citep{lingoes1971some}.
+% 		%
+% 		As in CQO and CCA, environmental variables were scaled and centered. 
+% 		%
+% 		The significance tests for explanatory variables are calculated using a pseudo-F-Statistic in the same manner as for the CCA.\\
 		
-	\subsection*{Comparison of Methods}
-        % How did I evaluate the methods look at results
-        The benefit of using simulated rather than field data are twofold:
-        %
-        i) there is a clear dichotomy between causal and noise variables and 
-        ii) we know which variable belongs to which group. 
-        %
-        This enables us to compare the methods in terms of their classification error rates.
-        %
-        To this end, we calculated false positive (FPR) and false negative rates (FNR) for each method.
-        %
-        % \begin{align}
-        %   FPR &= FP /(TN + FP) \\        
-        %   FNR &=  FN / (TP + FN)
-        % \end{align}
-        where FP is a False Positive, TN a True Negative, FN a False Negative, and TP a True Positive. 
-        %
-        A false positive occurs when a noise variable is classified as causal, whereas a false negative when a causal variable is classified as non-causal. 
-        %
-        True positives and negatives are instances where the variable is labeled correctly. 
-        %
-        An FPR of 0.5 for example would indicate, that half of all noise variables were classified as causal. 
-        %
-        Variables with a \textit{p}-value lower than the significance level($\alpha$) were classified as causal whereas all variables with $p > \alpha $  were classified as noise.
-        %
-        To alleviate the problematic dichotomy of statistical significance \citep{Greenland2016}, we use five different significance levels $\alpha$ (0.01, 0.03, 0.05, 0.07 and 0.1).
-		%
-		This allows us to evaluate trends in classification strength over different thresholds. 
+% 	\subsection*{Comparison of Methods}
+%         % How did I evaluate the methods look at results
+%         The benefit of using simulated rather than field data are twofold:
+%         %
+%         i) there is a clear dichotomy between causal and noise variables and 
+%         ii) we know which variable belongs to which group. 
+%         %
+%         This enables us to compare the methods in terms of their classification error rates.
+%         %
+%         To this end, we calculated false positive (FPR) and false negative rates (FNR) for each method.
+%         %
+%         % \begin{align}
+%         %   FPR &= FP /(TN + FP) \\        
+%         %   FNR &=  FN / (TP + FN)
+%         % \end{align}
+%         where FP is a False Positive, TN a True Negative, FN a False Negative, and TP a True Positive. 
+%         %
+%         A false positive occurs when a noise variable is classified as causal, whereas a false negative when a causal variable is classified as non-causal. 
+%         %
+%         True positives and negatives are instances where the variable is labeled correctly. 
+%         %
+%         An FPR of 0.5 for example would indicate, that half of all noise variables were classified as causal. 
+%         %
+%         Variables with a \textit{p}-value lower than the significance level($\alpha$) were classified as causal whereas all variables with $p > \alpha $  were classified as noise.
+%         %
+%         To alleviate the problematic dichotomy of statistical significance \citep{Greenland2016}, we use five different significance levels $\alpha$ (0.01, 0.03, 0.05, 0.07 and 0.1).
+% 		%
+% 		This allows us to evaluate trends in classification strength over different thresholds. 
         
 
-	\subsection*{Software}
-		All simulations and analyses were done in R 3.4.4 \citep{RCT2018}.
-		%
-		MvGLM were conducted with mvabund 3.13.1. \citep{Wang2019}, dbRDA and CCA with vegan 2.5-2 \citep{Oksanen2018} and CQO with VGAM 1.0-5 \citep{VGAM19}. 
-		%
-		%
-		All calculations were conducted on an Ubuntu 18.04 machine with 64-bit, 8 GB RAM and 1.6 GHz.\\
-		%
-		All datasets and R scripts generated during and/or analysed during the current study are available from the corresponding author on reasonable request.
+% 	\subsection*{Software}
+% 		All simulations and analyses were done in R 3.4.4 \citep{RCT2018}.
+% 		%
+% 		MvGLM were conducted with mvabund 3.13.1. \citep{Wang2019}, dbRDA and CCA with vegan 2.5-2 \citep{Oksanen2018} and CQO with VGAM 1.0-5 \citep{VGAM19}. 
+% 		%
+% 		%
+% 		All calculations were conducted on an Ubuntu 18.04 machine with 64-bit, 8 GB RAM and 1.6 GHz.\\
+% 		%
+% 		All datasets and R scripts generated during and/or analysed during the current study are available from the corresponding author on reasonable request.
 
 % \section{Results}
 % 		%------------------------------%

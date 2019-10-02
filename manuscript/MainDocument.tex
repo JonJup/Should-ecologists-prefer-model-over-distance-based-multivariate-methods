@@ -86,7 +86,7 @@
             %CCA
             CQO and CCA had the highest false negative rate (0.291) and false positive rate (0.256), respectively. 
         %conclusions
-          Our study shows that both model- and algorithm-based methods have their place in the ecologists statistical toolbox. 
+          Our study shows that both model- and algorithm-based methods have their place in the ecologist's statistical toolbox. 
           % 
         MvGLM and dbRDA are reliable for analyzing species-environment relations, whereas both CQO and CCA exhibited considerable flaws, especially with linear environmental gradients. 
           %
@@ -112,7 +112,7 @@
 
 \section{Introduction}
 
-	Which environmental gradients control species abundances and community composition, is one of the most essential questions in ecology [e.g.][]\citet{Clements1907}  and the current alteration of ecosystems at an unprecedented rate endows it with a new urgency \citep{pacifici2015assessing}. 
+	Which environmental gradients control species abundances and community composition, is one of the most essential questions in ecology \citep[e.g.][]{Clements1907}  and the current alteration of ecosystems at an unprecedented rate endows it with a new urgency \citep{pacifici2015assessing}. 
 	%
 	Given the complexity of simulating ecological systems under artificial conditions (e.g. in microcosms), monitoring the abundance or occurrence of taxa across sites with variable  environmental conditions has been one approach to tackle this question.
 	%
@@ -130,7 +130,7 @@
 % 	%&	Distance Based + Whats wrong with it
 % 	%------------------------------%
     
-    While univariate data are routinely analyzed by model-based methods like ANOVA, generalized linear models and linear mixed models, multivariate data are most often analyzed with algorithm-based methods.
+    While univariate data are routinely analyzed by model-based methods like ANOVA, generalized linear models, and linear mixed models, multivariate data are most often analyzed with algorithm-based methods.
     %
     Most of the latter are variations on three basic approaches: i) correspondence analysis, ii) redundancy analysis, or iii) analysis of pairwise distance matrices. 
     %
@@ -337,7 +337,9 @@
         %
         Finally, each model was run using five different seeds for random number generation which affects the noise variable. 
         %
-        More details on the parameterization of the models are provided in Table SM 1.
+        The simulation process is visualized in Figure \ref{fig:flowchart_simulation}.
+        %
+        More details on the parameterization of the models are provided in Table S 1 in the Appendix.
 
     
     \subsection*{Overview of Methods}
@@ -404,7 +406,7 @@
 		%
 		If the lowest deviances are too far apart, the solution might be local and the model should be refitted.  
 		%
-		Here, we fit the model again, until the difference between the lowest and the fifth lowest deviance no longer exceeds 3. 
+		Here, we fit the model again, until the difference between the lowest and the fifth lowest deviance no longer exceeded 3. 
 		% 
 		% General Info - absolute values 
         In its current implementation in the VGAM R-package \citep{VGAM19}, CQO does not provide \textit{p}-values \cite[but see][]{yee2010vglms}. 
@@ -433,7 +435,7 @@
 	 %
 	 Though it is possible to estimate the parameters with iteratively reweighted least squares in a GLM, this was to computationally intensive at the time the method was proposed by  \citet{GauchJr1972}.
 	 %
-	 Instead, \citep{TerBraak1986} proposed to approximate the results by CCA, which is valid as long as: all species have equal tolerances $t$ and maximal abundances $c$, their responses are unimodal and symmetrically bell-shaped and their optima $c$ are spread uniformly in the ordination space. 
+	 Instead, \citet{TerBraak1986} proposed to approximate the results by CCA, which is valid as long as: all species have equal tolerances $t$ and maximal abundances $c$, their responses are unimodal and symmetrically bell-shaped and their optima $c$ are spread uniformly in the ordination space. 
 	 These assumptions are collectively known as the \textit{species packing model}.
 	 %
 	 \citet{Palmer1993}, \citet{Johnson1999} and \citet{Zuur1999} confirmed the validity of the approximation and its robustness towards violations against the species packing model in simulation studies.
@@ -486,7 +488,7 @@
 	    %
         It is not based on one specific distance measure but instead can adopt any chosen measure.
         %
-		It is the constrained form of Principal Coordinates Analysis (PCoA) \citep{Legendre1999}, which will be shortly addressed here.
+		It is the constrained form of Principal Coordinates Analysis \citep[PCoA,][]{Legendre1999}, which will be shortly addressed here.
 		%
 		In PCoA, $\mathbf{Y}$ is transformed into a centered distance matrix $\Delta$.
 		%
@@ -531,7 +533,7 @@
         %
         An FPR of 0.5 for example would indicate, that half of all noise variables were classified as causal. 
         %
-        Variables with a \textit{p}-value lower than the significance level($\alpha$) were classified as causal whereas all variables with $p > \alpha $  were classified as noise.
+        Variables with a \textit{p}-value lower than the significance level ($\alpha$) were classified as causal whereas all variables with $p > \alpha $  were classified as noise.
         %
         To alleviate the problematic dichotomy of statistical significance \citep{Greenland2016}, we use five different significance levels $\alpha$ (0.01, 0.03, 0.05, 0.07 and 0.1).
 		%
@@ -539,21 +541,19 @@
         
 
 	\subsection*{Software}
-		All simulations and analyses were done in R 3.4.4 \citep{RCT2018}.
+		We used R 3.4.4 \citep{RCT2018} for all simulations and analyses.
 		%
 		MvGLM were conducted with mvabund 3.13.1. \citep{Wang2019}, dbRDA and CCA with vegan 2.5-2 \citep{Oksanen2018} and CQO with VGAM 1.0-5 \citep{VGAM19}. 
 		%
 		%
 		All calculations were conducted on an Ubuntu 18.04 machine with 64-bit, 8 GB RAM and 1.6 GHz.\\
-		%
-		All datasets and R scripts generated during and/or analysed during the current study are available from the corresponding author on reasonable request.
 
 \section{Results}
 		%------------------------------%
 		%& 		References 				
 		%------------------------------%  
 	
-		We report the means and standard deviations of \textit{p}-values of MvGLM, CQO, CCA, and dbRDA for all explanatory variables (Table \ref{table:results1::mean-p}), p-values for different response shapes and sample sizes are given in the Tables S 2 - 5.
+		We report the means and standard deviations of \textit{p}-values of MvGLM, CQO, CCA, and dbRDA for all explanatory variables (Table \ref{table:results1::mean-p}), \textit{p}-values for different response shapes and sample sizes are given in the Tables S 2 - 5 in the Appendix.
 		
 		%------------------------------%
 		%& Table: p-values + standard deviations
@@ -562,7 +562,7 @@
         \begin{table*}[ht]
             \centering
         	\caption{
-        	    Mean \textit{p}-values $\pm$ standard deviations of the causal (env1 and env2) and noise variables from multivariate Generalized Linear Models (MvGLM), Constrained Quadratic Ordination (CQO), Canonical Correspondence Analysis (CCA), and distance-based Redundancy Analysis (dbRDA) for all models. 
+        	    Mean \textit{p}-values $\pm$ standard deviations of the causal (\textit{env1} and \textit{env2}) and noise variables from multivariate Generalized Linear Models (MvGLM), Constrained Quadratic Ordination (CQO), Canonical Correspondence Analysis (CCA), and distance-based Redundancy Analysis (dbRDA) for all models. 
         	    }
             \begin{tabular}{@{}
             >{\columncolor{white}[0pt][\tabcolsep]}
@@ -591,7 +591,7 @@
 		%  
 		The plot of Dunn-Smyth residuals against the linear predictor of \textit{LL} (Figure S 1) showed arched patterns, which could indicate that the residuals were not independent of the explanatory variables. 
         %
-        Nevertheless, We used a negative binomial residual distribution because visual inspection of the QQ-Plots suggested that it resulted in a better fit than Poisson or Gaussian distributions. 
+        Nevertheless, we used a negative binomial residual distribution because the visual inspection of the QQ-Plots suggested that it resulted in a better fit than Poisson or Gaussian distributions. 
 
 		%------------------------------%
 		%& 	 p-values 	
@@ -602,7 +602,7 @@
 		%
 		Otherwise, the samples size had no effect on the \textit{p}-values of the causal variables, which often were minimal (1 divided by the number of permutations + 1) at small sample sizes.
 		%
-		The \textit{p}-values for noise variables were higher and varied strongly (Figure \ref{fig:result1::p-valueComparison}).
+		The \textit{p}-values for noise variables were higher and varied strongly.
 		%
 		They only fell below the nominal significance level of 0.05 in three models. 
 		%
@@ -675,7 +675,7 @@
 
 		CCA has the highest mean \textit{p}-values for causal variables and the lowest for noise ones. 
 		%
-		Accordingly, the FPR was the highest of all methods (Figure \ref{fig:FPNR}.
+		Accordingly, the FPR was the highest of all methods (Figure \ref{fig:FPNR}).
 		%
 		Irrespective of significance level, it is more than one order of magnitude higher than for all other methods.
 		%
@@ -703,11 +703,9 @@
 		%
 		Indeed, the FNR was the lowest of all methods (Figure \ref{fig:FPNR}).
 		%
-        The \textit{p}-values were relatively similar for all sample sizes (Table S 5). 
-		%
-        The FPR of dbRDA was relatively high, with 0.031 at $\alpha = 0.05$.  
-        %
-        The FNR was the lowest of all methods. \\
+		The FPR was relatively high, with 0.031 at $\alpha = 0.05$.  
+		% 
+        \textit{p}-values were relatively similar for all sample sizes (Table S 5). 
         %
         Both algorithm-based methods were considerably faster than the model-based ones (Figure S 2).
 
@@ -716,7 +714,7 @@
 %------------------------------%
 %& 		Repeat what I did		
 %------------------------------%
-	We analyzed 180 simulated abundance data sets, that differed in response types and sample sizes with four different statistical methods, to assess the methods performance when used to differentiate between causal and noise variables. 
+	We analyzed 180 simulated abundance data sets, that differed in response types and sample sizes with four different statistical methods, to assess the methods' performance when used to differentiate between causal and noise variables. 
 	
 %------------------------------%
 %& 	one sentence conclusions	
@@ -740,7 +738,7 @@
     %
     The three noise variable \textit{p}-values that fell below 0.05 all occurred in \textit{LL} models, which violated the assumption of random residuals and thus would likely be identified as unreliable models.
 	%
-	The FNR was also low and resulted only through communities with the smallest sample size.
+	The FNR was also low and all Fale Negatives occured in communities with the smallest sample size.
 	%
 	A drawback of MvGLMs is the long run time due to resampling \citep{Wang2012}.
 	%
@@ -770,7 +768,7 @@
 	%
     Testing these methods on data sets with known correlation structures could highlight stronger performance differences, as the other methods lack adjustments to these properties.
     %
-	MvGLMs are the only method considered here that does not reduce the dimensions of the data.
+	MvGLMs are the only method considered here that does not reduce the dimesionality of the data.
 	%
 	Visualizing the multidimensional data is difficult as no easy-to-use and interpret method for MvGLMs is available. \\
 
@@ -779,7 +777,7 @@
 %------------------------------%
     dbRDA was least influenced by different response types and sample sizes. 
     %
-    These properties, together with the low FPR and FNR and the modest computation time make it an excellent method for cultivate analysis in ecology.
+    These properties, together with the low FPR and FNR and the modest computation time make it an excellent method for multivariate analysis in ecology.
 	%
 	However, the FPR was higher than that of both model-based methods.
 	%
@@ -824,7 +822,7 @@
 	%
 	Indeed, all of the methods we tested here can include quadratic terms which would most likely have resulted in better fitting models for unimodal and bimodal predictors. 
 	%
-	Their application is uncommon in CCA and RDA and could be the scope of a future studies.
+	Their application is uncommon in CCA and RDA and could be the scope of future studies.
 
 %------------------------------%
 %& 			CQO					
@@ -882,7 +880,7 @@ CQO has only rarely been used in ecological studies and mostly within fisheries 
 	%
 	However, in a study of \citet{Oksanen2002} only about 20\% of the responses were strongly skewed, whereas symmetric and bell-shaped responses were most common. 
 	%
-	Alternatively, asymmetry could be introduced through random terms added to abundances, environmental variables, or both. \cite[e.g.][]{McCune1997}
+	Alternatively, asymmetry could be introduced through random terms added to abundances, environmental variables, or both. \cite[e.g.][]{McCune1997}.
 	%
 	When correlated random terms are added to both, this would engender endogeneity (a non-zero covariance between the residuals and one or more explanatory variables). 
 	%
@@ -898,11 +896,11 @@ CQO has only rarely been used in ecological studies and mostly within fisheries 
 
 	Our study shows that model-based multivariate inference can outperform more frequently used algorithm-based methods. 
 	%
-	The answer to our eponymous question is thus: Not categorically - decisions should be made on a case-by-case basis.
+	The answer to our eponymous question is thus: not categorically - decisions should be made on a case-by-case basis.
 	%
 	As model-based methods are still at an early stage, new developments and increases in computation speed can be expected.   
 	%
-	An especially active area are models using joint probability distributions \cite[e.g.][]{Clark2014, Pollock2014} that estimate the joint distribution of all species conditional on the environmental variables instead of only using the marginal distribution of every species' abundance. 
+	An especially active area of development are models using joint probability distributions \cite[e.g.][]{Clark2014, Pollock2014} that estimate the joint distribution of all species conditional on the environmental variables instead of only using the marginal distribution of every species' abundance. 
 	%
 	A common interest of many joint models is to infer biotic interactions from the residuals of the species-environment interaction, 
 	as these two sets of predictors (biotic and abiotic) were shown to have little redundancy \citep{Meier2010}.

@@ -109,7 +109,7 @@
 
 \section{Introduction}
 
-	Which environmental gradients control species abundances and community composition, is one of the most essential questions in ecology (e.g. \citet{Clements1907})  and the current alteration of ecosystems at an unprecedented rate endows it with a new urgency \citep{pacifici2015assessing}. 
+	Which environmental gradients control species abundances and community composition, is one of the most essential questions in ecology [e.g.][]\citet{Clements1907}  and the current alteration of ecosystems at an unprecedented rate endows it with a new urgency \citep{pacifici2015assessing}. 
 	%
 	Given the complexity of simulating ecological systems under artificial conditions (e.g. in microcosms), monitoring the abundance or occurrence of taxa across sites with variable  environmental conditions has been one approach to tackle this question.
 	%
@@ -222,7 +222,7 @@
 	%--------------------------------%
 		\begin{figure}[ht]
 		    \begin{center}
-		        \includegraphics[width = 1\linewidth]{Communities_trimmed_appended}     
+		        \includegraphics[width = 1\linewidth]{figure1_simulated_communities}   
 			   	\caption{
 			                Simulated abundance responses along two causal variables (\textit{env1} and \textit{env2}). 
                             Response combinations are: unimodal-unimodal (left), unimodal-linear (middle) and unimodal-bimodal (right). 
@@ -235,91 +235,80 @@
 			\end{center}
         \end{figure}
         
-% 		%------------------------------%
-% 		%&		Environmental Gradients				
-% 		%------------------------------%        
-%         %
-% 		We simulated abundances along two environmental gradients \textit{env1} and \textit{env2}, which henceforth will be referred to as causal variables to differentiate them from the noise variables.  
-% 		%
-%         Both causal variables consist of the natural numbers from 1 to 100. 
-%         %
-%         Each possible combination of the two is a site, i.e. the total number of sites N = 10.000.
-% 		%
-% 		$\mathbf{Y_{Large}}$ holds the simulated abundances for all 10.000 sites.
-% 	    %
-% 	    This data set is larger than most ecological field data sets and fitting models to it would have required considerable computation time.
-% 	    %
-% 	    Therefore, we sampled from $\mathbf{Y_{Large}}$ with six different samples sizes (25, 100, 225, 400, 625, and 900) to obtain $\mathbf{Y_{Sample}}$.
-%         %
-%         Depending on the sample size $n$, a set number ($\sqrt{n}$) of sampling locations per causal variable were chosen. 
-%         %
-%         These locations always included the variable's minimum and maximum values (i.e. 1 and 100), between those, the locations were equidistantly distributed.
-% 		%
-% 		The abundances of all species at all combinations of sampling locations constitute $\mathbf{Y_{Sample}}$.
-% 		%
-% 		All species show the same response type towards each causal variable, but response types can differ between variables (Figure \ref{fig:bivariateExample}). 
-% 	    %
-% 		This setup allows for six communities each with a different combination of response types, including those with identical response types to both variables (Figure \ref{fig:flowchart_simulation}).  
-% 		%
-% 		The communities are labeled with their abbreviated response types, e.g. \textit{LB} for a community  in which species' abundances respond linearly to the first and bimodally to the second causal variable (Figure \ref{fig:bivariateExample}c). \\
-% 		%------------------------------%
-% 		%&		Responses				
-% 		%------------------------------%
-% 		Unimodal responses were simulated using the Gaussian response model \citep{GauchJr1972} expanded to multiple dimensions (Eqn. \ref{eq:GaussianResponseModel}).
-% 		%
-% 		\begin{equation} \label{eq:GaussianResponseModel}
-% 					y_{s, n} = \prod_{m}^{M_{uni}} c_{s,m} \times exp\bigg(-\frac{(x_{m,n} - u_{s,m})^2}{2t^2_{s,m}}\bigg)		
-% 		\end{equation}
-% 		%	
-%     	where $u_{s,m}$ is the position of the optimum (i.e. the point with the highest abundance) of species $s$ along the environmental variable $m$, $t_{s, m}$ is the tolerance of species $s$ toward that variable and determines the width of the unimodal curve and $c_{s,m}$ is the maximal abundance of species $s$ on environmental variable $m$. 
-% 		%
-% 		$M_{uni}$ is the number of unimodal environmental variables. 
-% 		%
-% % 		Note that all environmental variables themselves are actually linear and only the response toward them is variable. 
-% % 		%
-% % 		To improve readability though, we will refer to environmental variables in the manner that species respond to them. \\
-% 		%
-% 		Linear responses were simulated by multiplying the environmental variables with a coefficient $\beta$ (Eqn. 2).
-% 		%
-% 		\begin{equation}
-% 		 				y_{s,n} = \prod_{m}^{M_{lin}} x_{m,n} \times \beta_{s,m}
-% 		\end{equation}
-% 		%
-% 		Bimodal responses were simulated by adding two unimodal models with different optima $u_{s,m}$.\\
-% 		%
-% 		This way we obtained $M = 2$ abundance values $y_{m,s,n}$ per species and site. 
-% 		%
-% 		To obtain a single abundance $y_{s,n}$ for each species at each site, we multiplied the abundances of each environmental variables.
-% 		%
-% 		By multiplying instead of adding the abundance values, we ensured that a species is absent from sites where its abundance drops to zero for one of the gradients, i.e. is outside of its niche. 
+		%------------------------------%
+		%&		Environmental Gradients				
+		%------------------------------%        
+        %
+		We simulated abundances along two environmental gradients \textit{env1} and \textit{env2}, which henceforth will be referred to as causal variables to differentiate them from the noise variables.  
+		%
+        Both causal variables consist of the natural numbers from 1 to 100. 
+        %
+        Each possible combination of the two is a site, i.e. the total number of sites N = 10.000.
+		%
+		$\mathbf{Y_{Large}}$ holds the simulated abundances for all 10.000 sites.
+	    %
+	    This data set is larger than most ecological field data sets and fitting models to it would have required considerable computation time.
+	    %
+	    Therefore, we sampled from $\mathbf{Y_{Large}}$ with six different samples sizes (25, 100, 225, 400, 625, and 900) to obtain $\mathbf{Y_{Sample}}$.
+        %
+        Depending on the sample size $n$, a set number ($\sqrt{n}$) of sampling locations per causal variable were chosen. 
+        %
+        These locations always included the variable's minimum and maximum values (i.e. 1 and 100), between those, the locations were equidistantly distributed.
+		%
+		The abundances of all species at all combinations of sampling locations constitute $\mathbf{Y_{Sample}}$.
+		%
+		All species show the same response type towards each causal variable, but response types can differ between variables (Figure \ref{fig:bivariateExample}). 
+	    %
+		This setup allows for six communities each with a different combination of response types, including those with identical response types to both variables (Figure \ref{fig:flowchart_simulation}).  
+		%
+		The communities are labeled with their abbreviated response types, e.g. \textit{LB} for a community  in which species' abundances respond linearly to the first and bimodally to the second causal variable (Figure \ref{fig:bivariateExample}c). \\
+		%------------------------------%
+		%&		Responses				
+		%------------------------------%
+		Unimodal responses were simulated using the Gaussian response model \citep{GauchJr1972} expanded to multiple dimensions (Eqn. \ref{eq:GaussianResponseModel}).
+		%
+		\begin{equation} \label{eq:GaussianResponseModel}
+					y_{s, n} = \prod_{m}^{M_{uni}} c_{s,m} \times exp\bigg(-\frac{(x_{m,n} - u_{s,m})^2}{2t^2_{s,m}}\bigg)		
+		\end{equation}
+		%	
+    	where $u_{s,m}$ is the position of the optimum (i.e. the point with the highest abundance) of species $s$ along the environmental variable $m$, $t_{s, m}$ is the tolerance of species $s$ toward that variable and determines the width of the unimodal curve and $c_{s,m}$ is the maximal abundance of species $s$ on environmental variable $m$. 
+		%
+		$M_{uni}$ is the number of unimodal environmental variables. 
+		%
+		Linear responses were simulated by multiplying the environmental variables with a coefficient $\beta$ (Eqn. 2).
+		%
+		\begin{equation}
+		 				y_{s,n} = \prod_{m}^{M_{lin}} x_{m,n} \times \beta_{s,m}
+		\end{equation}
+		%
+		Bimodal responses were simulated by adding two unimodal models with different optima $u_{s,m}$.\\
+		%
+		This way we obtained $M = 2$ abundance values $y_{m,s,n}$ per species and site. 
+		%
+		To obtain a single abundance $y_{s,n}$ for each species at each site, we multiplied the abundances of each environmental variables.
+		%
+		By multiplying instead of adding the abundance values, we ensured that a species is absent from sites where its abundance drops to zero for one of the gradients, i.e. is outside of its niche. 
 
-% 	%------------------------------%
-% 	%&		Figure: Flowchart 	
-% 	%------------------------------%
+	%------------------------------%
+	%&		Figure: Flowchart 	
+	%------------------------------%
 		
-% 		\begin{figure}[ht]
-% 			\centering
-% 			\includegraphics[width=1\linewidth]{190917_MTP_MM_FLOWCHART}
-% 			\caption{
-% 			        Flowchart of the community simulations. 
-% 			        %
-% 			        The environmental space is comprised out of two variables (\textit{env1} and \textit{env2}) and 10.000 unique sites.
-% 			        %
-% 			        At each site, the abundances of nine species are simulated. 
-% 			        %
-% 			        Abundance responses to environmental gradients display three shapes:
-% 			        unimodal (U), linear (L) and bimodal (B). 
-% 			         %
-% 			         All nine species of one community show the same response shape (with varying parameters) to one gradient, but response shapes can differ between gradients. 
-% 			         %
-% 			         All six possible combinations of response shapes are sampled with six different sample sizes spanning from 25 to 900.
-% 			        %
-%                     Before these data are analyzed two noise variables are added to $\mathbf{X}$ .
-%                     %
-%                     For each response shape - sample size combination, five different pairs of noise variables are appended to $\mathbf{X}$. 
-% 			        }
-% 			\label{fig:flowchart_simulation}
-% 		\end{figure}
+		\begin{figure}[ht]
+			\centering
+			\includegraphics[width=1\linewidth]{manuscript/figure2_flowchart}
+			\caption{
+			        Flowchart of the community simulations. 
+			        The environmental space is comprised out of two variables (\textit{env1} and \textit{env2}) and 10.000 unique sites.
+			        At each site, the abundances of nine species are simulated. 
+			        Abundance responses to environmental gradients display three shapes:
+			        unimodal (U), linear (L) and bimodal (B). 
+			         All nine species of one community show the same response shape (with varying parameters) to one gradient, but response shapes can differ between gradients. 
+			         All six possible combinations of response shapes are sampled with six different sample sizes spanning from 25 to 900.
+                    Before these data are analyzed two noise variables are added to $\mathbf{X}$ .
+                    For each response shape - sample size combination, five different pairs of noise variables are appended to $\mathbf{X}$. 
+			        }
+			\label{fig:flowchart_simulation}
+		\end{figure}
 	
 % 	%------------------------------%
 % 	%&		Model MISC	

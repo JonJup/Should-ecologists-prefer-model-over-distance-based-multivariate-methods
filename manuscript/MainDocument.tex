@@ -6,7 +6,7 @@
     \usepackage{graphicx}
     %\usepackage[utf8]{inputenc}
     \usepackage{amsmath}  % for the align environment 
- %   \usepackage{authblk}
+   \usepackage{authblk}
  %   \usepackage[space]{grffile}
  %   \usepackage{latexsym}
 %    \usepackage{textcomp}
@@ -45,7 +45,11 @@
 
 \title{Should ecologists prefer model- over algorithm-based multivariate methods?}
 
-\author{Jonathan F. Jupke and Ralf B. Schäfer \\ iES Landau, Institute for Environmental Sciences,\\ University Koblenz-Landau, Fortstraße 7, 76829 Landau, Germany}
+% \author{Jonathan F. Jupke and Ralf B. Schäfer \\ iES Landau, Institute for Environmental Sciences,\\ University Koblenz-Landau, Fortstraße 7, 76829 Landau, Germany}
+
+\author[1]{Jonathan F. Jupke}
+\author[1]{Ralf B. Schäfer}
+\affil[1]{iES Landau, Institute for Environmental Sciences, University Koblenz-Landau, Fortstraße 7, 76829 Landau, Germany}
 
 %%% ----------------- %%%
 %%% ---Title Page --- %%%
@@ -927,7 +931,8 @@ The authors wish to thank Andreas Scharmüller, Stefan Kunz, Sebastian Scheu, Ve
 \section*{Author Contributions}
 JFJ and RBS conceived the experiment. JFJ conducted the simulation and the analyses. JFJ and RBS wrote the manuscript.
 \section*{Data accessibility}
-All data as well as R scripts are available in the associated Github repository (https://github.com/JonJup/Should-ecologists-prefer-model--over-algorithm-based-multivariate-methods). 
+All data as well as R scripts are available in the associated Github repository\\
+https://github.com/JonJup/Should-ecologists-prefer-model--over-algorithm-based-multivariate-methods. 
 %%% -------------------- %%%
 %%% --- Bibliography --- %%%
 %%% --------------------- %%%
@@ -1514,7 +1519,9 @@ Zuur, A.~F., Ieno, E.~N., and Smith, G.~M. (2007).
     \begin{figure}[!htbp]
         \centering
         \includegraphics[scale = 0.4]{figure5_arched_dunn_smyth}
-        \caption{The Dunn-Smyth residuals of the \textit{LL} community sampled with 400 samples plotted against the linear predictor. A pronounced arched pattern can be observed for every single species (different colors).}
+        \caption{
+        The Dunn-Smyth residuals of the \textit{LL} community sampled with 400 samples plotted against the linear predictor. A pronounced arched pattern can be observed for every single species (different colors).
+        }
         \label{fig:arched_DS}
     \end{figure}{}
     
@@ -1524,7 +1531,7 @@ Zuur, A.~F., Ieno, E.~N., and Smith, G.~M. (2007).
         \centering
         \includegraphics[scale =0.6]{figure6_runtime}
         \caption{
-        Run times of Multivariate Generalized Linear Models (MvGLM), distance-based Redundancy Analysis (dbRDA), Constrained Quadratic Ordination (CQO), and Canonical Correspondence Analysis (CCA). X-axis is scaled with a decimal logarithm. Colors indicate sample sizes.
+        Run times of Multivariate Generalized Linear Models (MvGLM), distance-based Redundancy Analysis (dbRDA), Constrained Quadratic Ordination (CQO), and Canonical Correspondence Analysis (CCA). The X-axis is scaled with a decimal logarithm. Colors indicate sample sizes.
         }
         \label{fig:runtime}
     \end{figure}{}

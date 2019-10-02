@@ -119,7 +119,7 @@
 	intercorrelations between variables, 
 	e.g. through biotic interactions \citep{morales2015inferring},
 	probability distributions other than the normal, 
-	more species than sites (\textit{high dimensionality}, especially in DNA barcoding studies, \citep{cristescu2014barcoding}),  
+	more species than sites \citep[\textit{high dimensionality}, especially in DNA barcoding studies,][]{cristescu2014barcoding},  
 	and many zeros, because most species are commonly absent from most sites (\textit{sparsity}) \citep{mcgill2007species}. 
 	
 % 	%------------------------------%
@@ -135,13 +135,13 @@
     %
     In distance-based algorithms, for example, the researcher implicitly assumes a mean-variance relationship of the data by choosing a certain distance metric. 
 	% 
-	For instance, Minkowski distances (e.g. Manhattan and Euclidean) assume a constant variance across all mean values \cite{TerBraak1988}
+	For instance, Minkowski distances (e.g. Manhattan and Euclidean) assume a constant variance across all mean values \citep{TerBraak1988}
 	%
-	whereas species abundances often show a quadratic mean-variance relationship \cite{routledge1991taylor, yamamura1999transformation}.
+	whereas species abundances often show a quadratic mean-variance relationship \citep{routledge1991taylor, yamamura1999transformation}.
 	%
 	Whether a distance metric is appropriate depends on the properties of the data and the aim of the study, as each metric extracts different information from the raw data. 
 	%
-	The choice is complicated by the vast amount of available metrics \cite[see][]{Legendre2012}.
+	The choice is complicated by the vast amount of available metrics \citep[see][]{Legendre2012}.
 	%
 	Misspecification of the relationship by choosing an inappropriate distance metric can lead to erroneous conclusions as demonstrated by \citet{Warton2012}.
 	%
@@ -151,17 +151,17 @@
 	%&		Dritte Absatz:
 	%&	Model Based Approach
 	%------------------------------%
-	The model-based approach consists of explicitly specifying a statistical model of the process that generated the observed data \cite{Warton2015a}.
+	The model-based approach consists of explicitly specifying a statistical model of the process that generated the observed data \citep{Warton2015a}.
 	%
 	This includes properties such as marginal distributions, overdispersion, zero-inflation, mean-variance relationship, and correlation structure, all of which can be flexibly tailored to the data and the research question.
 	%
-	While this approach is ubiquitous in univariate analyses \cite[e.g.][]{bolker2008ecological, zuur2010protocol}, it has long been uncommon in multivariate ecological analyses, largely due to the absence of suitable models \cite{anderson2001new}.
+	While this approach is ubiquitous in univariate analyses \citep[e.g.][]{bolker2008ecological, zuur2010protocol}, it has long been uncommon in multivariate ecological analyses, largely due to the absence of suitable models \citep{anderson2001new}.
 	%
     However, advances in statistical theory and computation power have led to a surge of models for multivariate abundance data. 
 	%
-	Recent examples include Hierarchical Modeling of Species Communities \cite{Ovaskainen2017}, Generalized Joint 
+	Recent examples include Hierarchical Modeling of Species Communities \citep{Ovaskainen2017}, Generalized Joint 
 	%
-	Attribute Modelling \cite{Clark2017},  and multivariate Generalized Linear Models \cite[MvGLM,][]{Warton2012}.
+	Attribute Modelling \citep{Clark2017},  and multivariate Generalized Linear Models \citep[MvGLM,][]{Warton2012}.
 	
 	%------------------------------%
 	%&		Vierte Absatz:
@@ -170,13 +170,13 @@
 	
 	In MvGLM, a separate univariate GLM is fit to each taxon, with each model using the same predictors. 
 	%
-	Univariate GLMs are a flexible method and are strongly advocated for the analysis of count or occurrence data as they can handle different residual distributions and mean-variance relationships \cite{OHara2010, Warton2011, Szocs2015_b}.
+	Univariate GLMs are a flexible method and are strongly advocated for the analysis of count or occurrence data as they can handle different residual distributions and mean-variance relationships \citep{OHara2010, Warton2011, Szocs2015_b}.
 	%
-	Extending them to multi-species abundance data was thus a natural starting point for multivariate model-based analyses \cite{Warton2012}.
+	Extending them to multi-species abundance data was thus a natural starting point for multivariate model-based analyses \citep{Warton2012}.
 	%
 	The univariate models are combined by summing their test statistics, which allows for inference on the whole community.
 	%
-	The use of MvGLM, facilitated by an easy-to-use implementation in R  \cite[in the \textit{mvabund} R-package, ][]{Wang2019}, has steadily increased within the ecological community. 
+	The use of MvGLM, facilitated by an easy-to-use implementation in R  \citep[in the \textit{mvabund} R-package, ][]{Wang2019}, has steadily increased within the ecological community. 
 	%
 	However, direct comparisons of MvGLM to other methods remain rare, with a few exceptions.
 	% 
@@ -200,56 +200,40 @@
 	The abundance data differed in distributions and sample sizes. 
 	%
     Based on the assessment of a variables statistical significance, False Positive Rate (FPR) and False Negative Rates (FNR) were calculated. 
-% \section{Material and Methods}
-    
-%     %------------------------------%
-%     %& General approach
-%     %------------------------------%
-%     % We generated 180 data sets with varying sample sizes and abundance response shapes. 
-%     % %
-%     % Using these data sets, we tested the ability of four multivariate statistical techniques to differentiate between causal and noise variables.  
+\section{Material and Methods}
 
-% 	%------------------------------%
-% 	%&		Simulations 			
-% 	%------------------------------%
+	%------------------------------%
+	%&		Simulations 			
+	%------------------------------%
 
-% 	\subsection{Data Generation}
-% 		Species abundances were simulated as counts, a common abundance measure in ecology \cite{Warton2008}. 
-% 		%
-% 		Abundances were stored in $\mathbf{Y}$, an $N \times S$ matrix of responses, in this case, the abundances of $S$ species, $ s= 1\ ...\ S$, at $N$ sites, $ n = 1\ ...\ N$.
-% 		%
-% 		The species in $\mathbf{Y}$ responded to  environmental variable $x_m$ with one of three different response types: unimodal (\textit{U}), linear (\textit{L}) or bimodal (\textit{B}), as shown in Figure \ref{fig:bivariateExample}.
-%         %
-% 		These environmental variables are stored in $\mathbf{X}$ an $N \times M$ matrix with $M$ environmental variables, $m = 1\ ... \ M$. 
-% 	    %
-% 	    The simulation process is visualized in Figure \ref{fig:flowchart_simulation}. 
-	    
-	    
-% 	%--------------------------------%
-% 	%&		Figure: 3d Response shapes	
-% 	%--------------------------------%
-% 		\begin{figure}[ht]
-			
-% 			\begin{center}
-			    
-% 			    \includegraphics[width = 1\linewidth]{Communities_trimmed_appended}     
-% 			   	\caption{
-% 			                Simulated abundance responses along two causal variables (\textit{env1} and \textit{env2}). 
-%                 			%
-%                             Response combinations are: unimodal-unimodal (left), unimodal-linear (middle) and unimodal-bimodal (right). 
-%                 			%
-%                 			The vertical axis indicates abundance. 
-%                 			%
-%                 			The different colors represent different species.
-%                 			%
-%                 			All the examples show the unsampled abundance matrix
-%                 			$\mathbf{Y_{Large}}$.
-% 			            }
-% 			\label{fig:bivariateExample} 
-% 			\end{center}
-			
+	\subsection{Data Generation}
+		Species abundances were simulated as counts, a common abundance measure in ecology \citep{Warton2008}. 
+		%
+		Abundances were stored in $\mathbf{Y}$, an $N \times S$ matrix of responses, in this case, the abundances of $S$ species, $ s= 1\ ...\ S$, at $N$ sites, $ n = 1\ ...\ N$.
+		%
+		The species in $\mathbf{Y}$ responded to  environmental variable $x_m$ with one of three different response types: unimodal (\textit{U}), linear (\textit{L}) or bimodal (\textit{B}), as shown in Figure \ref{fig:bivariateExample}.
+        %
+		These environmental variables are stored in $\mathbf{X}$ an $N \times M$ matrix with $M$ environmental variables, $m = 1\ ... \ M$. 
+	    %
+	    The simulation process is visualized in Figure \ref{fig:flowchart_simulation}. 
 
-% 		\end{figure}
+	%--------------------------------%
+	%&		Figure: 3d Response shapes	
+	%--------------------------------%
+		\begin{figure}[ht]
+		    \begin{center}
+		        \includegraphics[width = 1\linewidth]{Communities_trimmed_appended}     
+			   	\caption{
+			                Simulated abundance responses along two causal variables (\textit{env1} and \textit{env2}). 
+                            Response combinations are: unimodal-unimodal (left), unimodal-linear (middle) and unimodal-bimodal (right). 
+                			The vertical axis indicates abundance. 
+                			The different colors represent different species.
+                			All the examples show the unsampled abundance matrix
+                			$\mathbf{Y_{Large}}$.
+			            }
+			    \label{fig:bivariateExample} 
+			\end{center}
+        \end{figure}
         
 % 		%------------------------------%
 % 		%&		Environmental Gradients				
@@ -281,7 +265,7 @@
 % 		%------------------------------%
 % 		%&		Responses				
 % 		%------------------------------%
-% 		Unimodal responses were simulated using the Gaussian response model \cite{GauchJr1972} expanded to multiple dimensions (Eqn. \ref{eq:GaussianResponseModel}).
+% 		Unimodal responses were simulated using the Gaussian response model \citep{GauchJr1972} expanded to multiple dimensions (Eqn. \ref{eq:GaussianResponseModel}).
 % 		%
 % 		\begin{equation} \label{eq:GaussianResponseModel}
 % 					y_{s, n} = \prod_{m}^{M_{uni}} c_{s,m} \times exp\bigg(-\frac{(x_{m,n} - u_{s,m})^2}{2t^2_{s,m}}\bigg)		
@@ -378,15 +362,15 @@
 % 		%
 % % 		Additionally, the relationship between the environmental variable and each species individually can be assessed by their individual likelihood ratio test statistics.   
 % % 		%
-% % 		The \textit{p}-values of these are adjusted to multiple testing by controlling the family-wise type I error rate using a resampling-based version of the \textit{Holm's step-down multiple testing procedure} \cite{Westfall1993}. \\
+% % 		The \textit{p}-values of these are adjusted to multiple testing by controlling the family-wise type I error rate using a resampling-based version of the \textit{Holm's step-down multiple testing procedure} \citep{Westfall1993}. \\
 % % 		%
 % % 		%These adjusted \textit{p}-values tend to be very conservative. \\
 % 		%
-% 		We fit MvGLMs with Poisson, negative binomial and Gaussian residual distributions to each community and compared their Dunn-Smyth residual-plots \cite{dunn1996randomized} and Akaike's Information Criteria \cite[AIC, ][]{akaike1974new}.
+% 		We fit MvGLMs with Poisson, negative binomial and Gaussian residual distributions to each community and compared their Dunn-Smyth residual-plots \citep{dunn1996randomized} and Akaike's Information Criteria \cite[AIC, ][]{akaike1974new}.
 % 		%
 % 		The likelihood ratio test statistic was calculated for the best fitting model (least patterns in residuals and lowest AIC).
 % 		%
-% 	    To estimate \textit{p}-values, we used a residual permutation bootstrap with 1000 repetitions \cite{davidsonbootstrap}.
+% 	    To estimate \textit{p}-values, we used a residual permutation bootstrap with 1000 repetitions \citep{davidsonbootstrap}.
 	
 % 	%------------------------------%
 % 	%&  CQO
@@ -436,7 +420,7 @@
 % 		Here, we fit the model again, until the difference between the lowest and the fifth lowest deviance no longer exceeds 3. 
 % 		% 
 % 		% General Info - absolute values 
-%         In its current implementation in the VGAM R-package \cite{VGAM19}, CQO does not provide \textit{p}-values \cite[but see][]{yee2010vglms}. 
+%         In its current implementation in the VGAM R-package \citep{VGAM19}, CQO does not provide \textit{p}-values \cite[but see][]{yee2010vglms}. 
 %         %
 %         To compare its results with the other methods, we calculated pseudo-\textit{p}-values for the CQO (details of the procedures can be found in the 
 %         %section 2 of the Supplementary Materials).
@@ -456,18 +440,18 @@
 % 	%&  CCA
 % 	%------------------------------%
 % 	\subsubsection{Canonical Correspondence Analysis}
-% 	 CCA is the heuristic solution to Restricted Gaussian Regression \cite{Zuur2007}. 
+% 	 CCA is the heuristic solution to Restricted Gaussian Regression \citep{Zuur2007}. 
 % 	 %
 % 	 In the latter, one tries to estimate the parameters \textit{u}, \textit{t}, and \textit{c} of a Gaussian response model (see Eqn. \ref{eq:GaussianResponseModel}), but instead of the measured environmental variables, their linear combinations are used as $x$. 
 % 	 %
 % 	 Though it is possible to estimate the parameters with iteratively reweighted least squares in a GLM, this was to computationally intensive at the time the method was proposed by  \citet{GauchJr1972}.
 % 	 %
-% 	 Instead, \cite{TerBraak1986} proposed to approximate the results by CCA, which is valid as long as: all species have equal tolerances $t$ and maximal abundances $c$, their responses are unimodal and symmetrically bell-shaped and their optima $c$ are spread uniformly in the ordination space. 
+% 	 Instead, \citep{TerBraak1986} proposed to approximate the results by CCA, which is valid as long as: all species have equal tolerances $t$ and maximal abundances $c$, their responses are unimodal and symmetrically bell-shaped and their optima $c$ are spread uniformly in the ordination space. 
 % 	 These assumptions are collectively known as the \textit{species packing model}.
 % 	 %
 % 	 \citet{Palmer1993}, \citet{Johnson1999} and \citet{Zuur1999} confirmed the validity of the approximation and its robustness towards violations against the species packing model in simulation studies.
 % 	 %
-% 	 Today, CCA is one of the most widely used and cited multivariate statistical methods in ecology \cite{Braak2014}.\\
+% 	 Today, CCA is one of the most widely used and cited multivariate statistical methods in ecology \citep{Braak2014}.\\
 % 		%
 % 		An iterative algorithm is used to obtain estimates. 
 % 		%
@@ -503,7 +487,7 @@
 % 		%
 % 		Explanatory variables were scaled and centered. 
 % 		%
-% 		Hypothesis tests for environmental variables can be conducted using a pseudo-$F$ statistic with permuted residuals  \cite{Legendre2011} and the null hypotheses that the effect of the variable on the response is equal to zero after accounting for the effect of all other variables. 
+% 		Hypothesis tests for environmental variables can be conducted using a pseudo-$F$ statistic with permuted residuals  \citep{Legendre2011} and the null hypotheses that the effect of the variable on the response is equal to zero after accounting for the effect of all other variables. 
 % 	    %
 % 	    Hypothesis tests were conducted with 999 permutations.\\
 	
@@ -515,11 +499,11 @@
 % 	    %
 %         It is not based on one specific distance measure but instead can adopt any chosen measure.
 %         %
-% 		It is the constrained form of Principal Coordinates Analysis (PCoA) \cite{Legendre1999}, which will be shortly addressed here.
+% 		It is the constrained form of Principal Coordinates Analysis (PCoA) \citep{Legendre1999}, which will be shortly addressed here.
 % 		%
 % 		In PCoA, $\mathbf{Y}$ is transformed into a centered distance matrix $\Delta$.
 % 		%
-% 		The columns of the matrix $\mathbf{PC}$ are the eigenvectors of $\Delta$ scaled to a length that is equal to the square root of their eigenvalues \cite{gower1966some}.
+% 		The columns of the matrix $\mathbf{PC}$ are the eigenvectors of $\Delta$ scaled to a length that is equal to the square root of their eigenvalues \citep{gower1966some}.
 % 		%
 % 		Each row of PC gives the eponymous \textit{Principal Coordinates} of one observation.
 % 		% 
@@ -529,9 +513,9 @@
 % 		%
 % 		dbRDA was highlighted by \citet{Szocs2015}, because the possibility to use asymmetrical distance metrics makes them appealing for sparse data sets. 
 % 		%  	
-% 	    We used the Bray-Curtis distance, which is the reciprocal of the Steinhaus coefficient  \cite{motyka1947zadaniach}, to calculate $\Delta$.
+% 	    We used the Bray-Curtis distance, which is the reciprocal of the Steinhaus coefficient  \citep{motyka1947zadaniach}, to calculate $\Delta$.
 % 	    %
-% 		Negative eigenvalues were corrected with Lingoes correction \cite{lingoes1971some}.
+% 		Negative eigenvalues were corrected with Lingoes correction \citep{lingoes1971some}.
 % 		%
 % 		As in CQO and CCA, environmental variables were scaled and centered. 
 % 		%
@@ -562,15 +546,15 @@
 %         %
 %         Variables with a \textit{p}-value lower than the significance level($\alpha$) were classified as causal whereas all variables with $p > \alpha $  were classified as noise.
 %         %
-%         To alleviate the problematic dichotomy of statistical significance \cite{Greenland2016}, we use five different significance levels $\alpha$ (0.01, 0.03, 0.05, 0.07 and 0.1).
+%         To alleviate the problematic dichotomy of statistical significance \citep{Greenland2016}, we use five different significance levels $\alpha$ (0.01, 0.03, 0.05, 0.07 and 0.1).
 % 		%
 % 		This allows us to evaluate trends in classification strength over different thresholds. 
         
 
 % 	\subsection{Software}
-% 		All simulations and analyses were done in R 3.4.4 \cite{RCT2018}.
+% 		All simulations and analyses were done in R 3.4.4 \citep{RCT2018}.
 % 		%
-% 		MvGLM were conducted with mvabund 3.13.1. \cite{Wang2019}, dbRDA and CCA with vegan 2.5-2 \cite{Oksanen2018} and CQO with VGAM 1.0-5 \cite{VGAM19}. 
+% 		MvGLM were conducted with mvabund 3.13.1. \citep{Wang2019}, dbRDA and CCA with vegan 2.5-2 \citep{Oksanen2018} and CQO with VGAM 1.0-5 \citep{VGAM19}. 
 % 		%
 % 		%
 % 		All calculations were conducted on an Ubuntu 18.04 machine with 64-bit, 8 GB RAM and 1.6 GHz.\\
@@ -768,11 +752,11 @@
 % 	%
 % 	The FNR was also low and resulted only through communities with the smallest sample size.
 % 	%
-% 	A drawback of MvGLMs is the long run time due to resampling \cite{Wang2012}.
+% 	A drawback of MvGLMs is the long run time due to resampling \citep{Wang2012}.
 % 	%
 % 	The resampling is necessary because it ensures that inferences are valid, even if species are intercorrelated. 
 % 	%
-% 	Resampling observations across independent sites (i.e. rows) accounts for their possible correlation \cite{anderson2001new}. 
+% 	Resampling observations across independent sites (i.e. rows) accounts for their possible correlation \citep{anderson2001new}. 
 %     %
 % 	Models that explicitly consider correlation structure avoid resampling and can reduce computation time.
 % 	%
@@ -784,7 +768,7 @@
 %     %
 %     MvGLMs can use an unstructured correlation matrix, but this is only advisable for data sets with many more sites than species and is computationally expensive. 
 %     %
-%     Another option is shrinking the correlation matrix towards identity using ridge regularization \cite{warton2008penalized, Warton2011a}.
+%     Another option is shrinking the correlation matrix towards identity using ridge regularization \citep{warton2008penalized, Warton2011a}.
 % 	%
 % 	Both alternatives use Generalized Estimation Equations (GEE) with the sandwich-type-estimator of \citet{Warton2011a}.
 % 	%
@@ -818,7 +802,7 @@
 % 	Other measures would likely produce different results, 
 % 	therefore the selection of an appropriate metric is a crucial step in any dbRDA analysis.
 % 	%  
-% 	Having to choose a single metric can be avoided by using consensus RDA \cite{Blanchet2014}.
+% 	Having to choose a single metric can be avoided by using consensus RDA \citep{Blanchet2014}.
 % 	% 
 % 	In this method, multiple dbRDAs are run, only differing in their distance metric. 
 % 	%
@@ -836,7 +820,7 @@
 
 % 	The CCA performed worst of the methods tested and assigned high \textit{p}-values to all linear variables.
 % 	%
-% 	As CCA assumes unimodal gradients, which are more frequent than linear ones in nature \cite{Oksanen2002}, this was expected.  
+% 	As CCA assumes unimodal gradients, which are more frequent than linear ones in nature \citep{Oksanen2002}, this was expected.  
 % 	%
 % 	This study confirmed, that CCA should be avoided if exploratory analyses indicate linear relationships, which can occur if the sampled range of a gradient is short relative to the species' tolerance. 
 % 	%
@@ -846,7 +830,7 @@
 % 	%
 % 	This is surprising, given that \textit{UU} fits the expectations of the species packing model perfectly and bimodal models deviate only slightly.
 % 	%
-% 	Newer approaches to CCA that can correct for zero inflation \cite{Zhang2012} or non-linear relationships between predictor and response variable \cite{Makarenkov2002} are available but not widely used. 
+% 	Newer approaches to CCA that can correct for zero inflation \citep{Zhang2012} or non-linear relationships between predictor and response variable \citep{Makarenkov2002} are available but not widely used. 
 % 	%
 % 	Indeed, all of the methods we tested here can include quadratic terms which would most likely have resulted in better fitting models for unimodal and bimodal predictors. 
 % 	%
@@ -904,7 +888,7 @@
 % %------------------------------%
 % %& 		Simulated Data			
 % %------------------------------% 
-%     The realism of the simulated communities could be improved by using more complex response patterns like beta-functions \cite{austin1994determining}, which add asymmetries to bell-shaped curves.
+%     The realism of the simulated communities could be improved by using more complex response patterns like beta-functions \citep{austin1994determining}, which add asymmetries to bell-shaped curves.
 % 	%
 % 	However, in a study of \citet{Oksanen2002} only about 20\% of the responses were strongly skewed, whereas symmetric and bell-shaped responses were most common. 
 % 	%
@@ -912,11 +896,11 @@
 % 	%
 % 	When correlated random terms are added to both, this would engender endogeneity (a non-zero covariance between the residuals and one or more explanatory variables). 
 % 	%
-% 	Simulations with induced endogeneity would be interesting as this phenomenon is underappreciated by ecologists \cite{armsworth2009contrasting, fox2015ecological}.
+% 	Simulations with induced endogeneity would be interesting as this phenomenon is underappreciated by ecologists \citep{armsworth2009contrasting, fox2015ecological}.
 % 	%
-% 	Observation and measurement are sources of errors in field data sets, and both can be represented in a model via binomial functions as in N-mixture models \cite{royle2004n}.
+% 	Observation and measurement are sources of errors in field data sets, and both can be represented in a model via binomial functions as in N-mixture models \citep{royle2004n}.
 % 	%
-%     This would be interesting to examine the effects of regression dilution \cite{frost2000correcting, McInerny2011}.
+%     This would be interesting to examine the effects of regression dilution \citep{frost2000correcting, McInerny2011}.
  
 % %------------------------------------------------%
 % %& Andere Vielversprechende Model-based approaches
@@ -931,15 +915,15 @@
 % 	An especially active area are models using joint probability distributions \cite[e.g.][]{Clark2014, Pollock2014} that estimate the joint distribution of all species conditional on the environmental variables instead of only using the marginal distribution of every species' abundance. 
 % 	%
 % 	A common interest of many joint models is to infer biotic interactions from the residuals of the species-environment interaction, 
-% 	as these two sets of predictors (biotic and abiotic) were shown to have little redundancy \cite{Meier2010}.
+% 	as these two sets of predictors (biotic and abiotic) were shown to have little redundancy \citep{Meier2010}.
 % 	%
-% 	Some of the models also anticipate the growing challenges of Big Data for ecology \cite{Hampton2013}.
+% 	Some of the models also anticipate the growing challenges of Big Data for ecology \citep{Hampton2013}.
 % 	%
-% 	Generalized Linear Latent Variable Models, for example, include latent variables instead of random effects to capture residual correlation, which considerably reduces the size of the variance -- covariance matrix \cite{Warton2015,Niku2017}.  
+% 	Generalized Linear Latent Variable Models, for example, include latent variables instead of random effects to capture residual correlation, which considerably reduces the size of the variance -- covariance matrix \citep{Warton2015,Niku2017}.  
 % 	%
-% 	In Hierarchical Modeling of Species Communities \cite{Ovaskainen2017} this approach is coupled with a fourth corner model \cite[including species traits, ][]{legendre1997relating} and phylogenetic relationships to create a flexible and comprehensive framework for community data analysis.
+% 	In Hierarchical Modeling of Species Communities \citep{Ovaskainen2017} this approach is coupled with a fourth corner model \cite[including species traits, ][]{legendre1997relating} and phylogenetic relationships to create a flexible and comprehensive framework for community data analysis.
 % 	%
-% 	In a similar vein, Generalized Joint Attribute Models allow for different kinds of data (e.g. continuous, discrete counts, ordinal counts, and occurrence) to be included in the same response variable and have outperformed Poisson GLM on discrete count data and a Bernoulli GLM on binary host status data in a recent simulation study \cite{Clark2017}. 
+% 	In a similar vein, Generalized Joint Attribute Models allow for different kinds of data (e.g. continuous, discrete counts, ordinal counts, and occurrence) to be included in the same response variable and have outperformed Poisson GLM on discrete count data and a Bernoulli GLM on binary host status data in a recent simulation study \citep{Clark2017}. 
 % 	%
 % 	Lastly, \citet{anderson2019pathway} recently highlighted a combination of the model- and algorithm-based approaches.
 %     %
@@ -947,9 +931,9 @@
 %     %
 %     In light of the good performance of dbRDA in our study, this proposal, to join features from both approaches, should be further pursued. 
 %     %
-% 	It is now essential that ways to infer ecological processes from the modeled patterns develop at a similar pace as these models, to avoid confusing statistical artifacts with genuine biological signals \cite{dormann2018biotic}.
+% 	It is now essential that ways to infer ecological processes from the modeled patterns develop at a similar pace as these models, to avoid confusing statistical artifacts with genuine biological signals \citep{dormann2018biotic}.
 % 	%
-% 	If this succeeds, a move from algorithm-based towards model-based methods might entail one from the current implicit Gleassonian towards a modern form of Clementsian perspective \cite{Eliot2011}; from asking how do individual species change along environmental gradients towards asking how do communities change as a whole.   
+% 	If this succeeds, a move from algorithm-based towards model-based methods might entail one from the current implicit Gleassonian towards a modern form of Clementsian perspective \citep{Eliot2011}; from asking how do individual species change along environmental gradients towards asking how do communities change as a whole.   
 	
 % \section*{Acknowledgements}
 % The authors wish to thank Andreas Scharmüller, Stefan Kunz, Sebastian Scheu, Verena Schreiber, and Lucas Streib whose valuable comments  improved the quality of the final document. The publication was funded by the Open Access Fund of the University of Koblenz-Landau.
@@ -1473,7 +1457,7 @@ Zuur, A.~F., Ieno, E.~N., and Smith, G.~M. (2007).
 %     % 
 %     We do not know what distribution to expect from this statistic or if it adheres to a specific distribution. 
 %     % 
-%     The method of choice for such cases are permutation-based tests, which produce pseudo \textit{p}-values \cite{Legendre2012}. 
+%     The method of choice for such cases are permutation-based tests, which produce pseudo \textit{p}-values \citep{Legendre2012}. 
 %     %
 %     Their general approach is as follows: 
 %     % 

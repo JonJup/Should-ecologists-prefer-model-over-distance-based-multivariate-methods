@@ -1,8 +1,20 @@
-### ----------------------------------------------- ###
-# --------------------  dbRDA Wrapper ----------------#
-### ----------------------------------------------- ###
+### --------------------------------------------------------------------- ###
+# --------------------  dbRDA Wrapper /wo lingoes correction ---------------#
+### --------------------------------------------------------------------- ###
 
 #FUNCTION: Runs a dbRDA on a set of communities defined in the script that calls this function.
+
+#COMMENT: In the first version of the submitted MS dbRDA was calculated with the
+#Lingoes correction (Lingoes, 1971) for negative eigenvalues. One of the
+#reviewers pointed out that McArdle and Anderson (2001) showed that correction
+#was not necessary. Hence I redid the analysis without corrections.
+
+# Lingoes, J. C. (1971). Some boundary conditions for a monotone analysis of
+# symmetric matrices. Psychometrika, 36(2):195-203.
+
+# McArdle, B. H., & Anderson, M. J. (2001). Fitting multivariate models to
+# community data: a comment on distance-based redundancy analysis. Ecology,
+# 82(1), 290-297.
 
 
 dbrda.wrapper <- function(Model, warn = F, comwd, SEEDS) {
@@ -31,8 +43,9 @@ dbrda.wrapper <- function(Model, warn = F, comwd, SEEDS) {
       mod <-
          dbrda(sp.data ~ .,
                data = var.data,
-               add = "lingoes",
+               #add = "lingoes",
                distance = "bray")
+      
       # prepare output
       anv1.time <-
          system.time(anv1 <-
@@ -40,17 +53,17 @@ dbrda.wrapper <- function(Model, warn = F, comwd, SEEDS) {
                            mod,
                            step  = 1000,
                            by = "margin",
-                           parallel = parallel::detectCores() - 2
+                           parallel = 2#parallel::detectCores() - 2
                         ))
-      anv2.time <-
-         system.time(anv2 <-
-                        anova.cca(
-                           mod,
-                           step  = 1000,
-                           by = "axis",
-                           parallel = parallel::detectCores() - 2,
-                           type = "margin"
-                        ))
+      # anv2.time <-
+      #    system.time(anv2 <-
+      #                   anova.cca(
+      #                      mod,
+      #                      step  = 1000,
+      #                      by = "axis",
+      #                      parallel = parallel::detectCores() - 2,
+      #                      type = "margin"
+      #                   ))
       mod.sum <- summary(mod)
       #statements
       p1 <- c(
@@ -61,13 +74,13 @@ dbrda.wrapper <- function(Model, warn = F, comwd, SEEDS) {
       
       output[[seed.i]] <- list(
          "By Terms" = as.matrix(anv1),
-         "By Axis"  = as.matrix(anv2),
+         # "By Axis"  = as.matrix(anv2),
          "Biplot Scores" = mod.sum$biplot,
          "Importance of components" = mod.sum$cont,
          "Variance Expplained" = p1,
          "Response" = Simulation.output$Response.Type,
          "Samples" = Simulation.output$Samples,
-         "Times" = c(anv1.time[[1]], anv2.time[[1]])
+         "Times" = anv1.time[[1]]
       )
    }
    ## Output

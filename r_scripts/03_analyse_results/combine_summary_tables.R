@@ -17,7 +17,7 @@
 
 # 01. Setup -------------------------------------------------------------------
 
-pacman::p_load(data.table, dplyr)
+pacman::p_load(data.table, dplyr, magrittr)
 # other required packages: fs, here, stringr, tidyr, readr 
 
 # set wd 
@@ -31,6 +31,8 @@ result_files =
       fs::dir_ls() %>% 
       as.character %>%  
       .[stringr::str_detect(. ,"_results")] 
+
+result_files = result_files[!(stringr::str_detect(result_files, "old"))]
 
 all_tables <- lapply(result_files, fread)
 

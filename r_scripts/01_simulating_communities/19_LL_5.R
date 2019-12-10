@@ -5,7 +5,7 @@
 #------------#
 
     # sets wd to location of sourced script. Only works when sourced!
-    setwd(here::here("01_Simulation"))
+      setwd(dirname(parent.frame(2)$ofile))
     # The file collected_functions.R contains all the functions necessary to run this script.
     source("Collected_Functions.R")
 

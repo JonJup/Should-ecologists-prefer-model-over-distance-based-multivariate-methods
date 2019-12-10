@@ -123,6 +123,10 @@ FNR[method == "dbrda", method := "dbRDA"]
 
 
 fpr_plot = ggplot(data = FPR, aes(x = sig.lvl, y = FPR)) + 
+      scale_fill_brewer( type = "qual", palette = 3, direction = 1,
+                         aesthetics = "fill") + 
+      scale_colour_brewer( type = "qual", palette = 3, direction = 1,
+                           aesthetics = "colour") + 
       geom_line(aes(col = method), size = 1, alpha = 1) + 
       geom_point(aes(fill = method), shape = 21, size = 3) + 
       ylab(label = "False Positive Rate") +
@@ -137,6 +141,10 @@ fpr_plot = ggplot(data = FPR, aes(x = sig.lvl, y = FPR)) +
       )
 
 fnr_plot = ggplot(data = FNR, aes(x = sig.lvl, y = FNR)) + 
+      scale_fill_brewer( type = "qual", palette = 3, direction = 1,
+                         aesthetics = "fill") + 
+      scale_colour_brewer( type = "qual", palette = 3, direction = 1,
+                           aesthetics = "colour") + 
       geom_line(aes(col = method), size = 1, alpha = 1, show.legend = F) + 
       geom_point(aes(fill = method), shape = 21, size = 3) + 
       ylab(label = "False Negative Rate") +
@@ -151,17 +159,23 @@ fnr_plot = ggplot(data = FNR, aes(x = sig.lvl, y = FNR)) +
       )
 
 (both = plot_grid(fpr_plot, 
-                  fnr_plot, 
-                  rel_widths = c(1,1.4),
-                  scale = c(.9, .9),
-                  labels = c("False Positive Rate", "False Negative Rate"))
+                  fnr_plot,
+                  fpr_plot2,
+                  fnr_plot2, 
+                  labels = "auto",
+                  scale = rep(.8, 4)))
+                  # rel_widths = c(1,1,
+                                 # 1,1),
+                  # scale = c(.9, .9,.9,.9),
+                  # labels = c("TypeI: False Positive Rate", "TypeI: False Negative Rate"), 
+                             "TypeIII: False Positive Rate", "TypeIII: False Negative Rate"))
 )
 
 
 # 04. Save Plot --------------------------------------------------------------
 
 ggplot2::ggsave(plot = both,
-                filename = "../../plots/FPNR.pdf",
+                filename = "../../plots/191203_FPNR.pdf",
                 height = 10,
                 width = 20,
                 units = "cm")

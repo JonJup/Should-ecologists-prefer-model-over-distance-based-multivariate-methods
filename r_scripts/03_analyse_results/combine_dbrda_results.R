@@ -23,6 +23,7 @@ pacman::p_load(dplyr, data.table)
 setwd(here::here("result_data/04_dbrda/"))
 output.files = fs::dir_ls()
 
+output.files = output.files[-181]
 # create empty list to hold results
 list.of.analysis.data <- vector(mode = "list")
 
@@ -31,7 +32,7 @@ list.of.analysis.data <- vector(mode = "list")
 # 02. Buid table  -----------------------------------------------------------
 
 ## FOR LOOP: READ RESULT FILES AND FORMAT INTO TABLE.
-for (i in 1:length(output.files)) {
+for (i in seq_along(output.files)) {
       load(output.files[i])
       
       analysis.data <- data.table()
@@ -108,7 +109,7 @@ for (sv in 1:5) {
 
 readr::write_csv(
       x = dbrda_combine,
-      path = "../../04_Analysis/02_Summary Tables/dbrda_results.csv",
+      path = "../../result_data/05_collected_results/dbrda_results.csv",
 )
 
 

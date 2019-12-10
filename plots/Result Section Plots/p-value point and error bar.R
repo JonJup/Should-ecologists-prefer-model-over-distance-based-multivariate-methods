@@ -181,7 +181,7 @@ error_bar2 = ggdraw(error_bar) +
 error_bar2
 
 ggplot2::ggsave(plot = error_bar2,
-                filename = "../../05_Plots/Result Section Plots/190912_error_bar.pdf",
+                filename = "../../plots/Result Section Plots/191202_error_bar.pdf",
                 height = 20,
                 width = 13,
                 units = "cm")
